@@ -12,7 +12,7 @@
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label>NIM</label>
-                        <input maxlength="14" autocomplete="off" class="form-control" required type="text" name="nim_param" placeholder="Masukkan NIM Mahasiswa..." />
+                        <input maxlength="14" autocomplete="off" class="form-control" required type="text" name="nim_param" placeholder="Masukkan NIM..." />
                     </div>
                     <div class="form-group">
                         <label>Nama Mahasiswa</label>

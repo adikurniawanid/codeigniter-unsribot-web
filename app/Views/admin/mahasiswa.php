@@ -29,13 +29,13 @@ echo $this->section('content');
                         <table class="table table-bordered table-hover" id="toDataTable" width="100%" cellspacing="0">
                             <thead class="text-center">
                                 <tr>
-                                    <th>No</th>
-                                    <th>NIM</th>
-                                    <th>Nama Mahasiswa</th>
-                                    <th>Jurusan</th>
-                                    <th>Fakultas</th>
-                                    <th>Angkatan</th>
-                                    <th>Aksi</th>
+                                    <th class="col-1">No</th>
+                                    <th class="col-2">NIM</th>
+                                    <th class="col-2">Nama</th>
+                                    <th class="col-2">Jurusan</th>
+                                    <th class="col-2">Fakultas</th>
+                                    <th class="col-1">Angkatan</th>
+                                    <th class="col-2">Aksi</th>
                                 </tr>
                             </thead>
                             <tfoot class="text-center">
@@ -68,6 +68,14 @@ echo $this->section('content');
                                                 <input type="hidden" name="id" value="<? //= $key['id']; 
                                                                                         ?>">
                                                 <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
+                                            </form>
+                                            <form action="/Admin/Kategori/<? //= $key['id']; 
+                                                                            ?>" method="POST" class="d-inline">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="PATCH">
+                                                <input type="hidden" name="status" value="arsip">
+                                                <button type="submit" class="btn btn-secondary btn-sm" id="btn-archive-kategori" title="Arsip" onclick="return confirm('Apakah anda ingin mengarsipkan kategori <? //= $key['nama']; 
+                                                                                                                                                                                                                ?> ?')"><i class="fas fa-archive "></i></button>
                                             </form>
                                             <form action="/Admin/Kategori/<? //= $key['id']; 
                                                                             ?>" method="POST" class="d-inline">
