@@ -29,10 +29,10 @@ echo $this->section('content');
                         <table class="table table-bordered table-hover" id="toDataTable" width="100%" cellspacing="0">
                             <thead class="text-center">
                                 <tr>
-                                    <th>No</th>
-                                    <th>Kode Fakultas</th>
+                                    <th class="col-1">No</th>
+                                    <th class="col-1">Kode Fakultas</th>
                                     <th>Nama Fakultas</th>
-                                    <th>Aksi</th>
+                                    <th class="col-2">Aksi</th>
                                 </tr>
                             </thead>
                             <tfoot class="text-center">
@@ -44,48 +44,34 @@ echo $this->section('content');
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php
-                                // $no = 1;
-                                // foreach ($kategori as $key) : 
+                                <?php $no = 1;
+                                foreach ($fakultas_list as $key) :
                                 ?>
-                                <tr>
-                                    <td><? //= $no; 
-                                        ?></td>
-
-                                    <td><a><? //= $key['kode'] 
-                                            ?></a></td>
-                                    <td>
-                                        <span style="
-  display:inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 50ch;">
-                                            <? //= $key['nama']; 
-                                            ?>
-                                        </span>
-                                    </td>
-                                    <td class="text-center">
-                                        <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                        ?>" method="POST" class="d-inline">
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="_method" value="PUT">
-                                            <input type="hidden" name="id" value="<? //= $key['id']; 
-                                                                                    ?>">
-                                            <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
-                                        </form>
-                                        <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                        ?>" method="POST" class="d-inline">
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="_method" value="PATCH">
-                                            <input type="hidden" name="status" value="arsip">
-                                            <button type="submit" class="btn btn-secondary btn-sm" id="btn-archive-kategori" title="Arsip" onclick="return confirm('Apakah anda ingin mengarsipkan kategori <? //= $key['nama']; 
-                                                                                                                                                                                                            ?> ?')"><i class="fas fa-archive "></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <?php //$no++;
-                                // endforeach 
+                                    <tr>
+                                        <td class="text-center"><?= $no; ?></td>
+                                        <td class="text-center"><?= $key['kode']; ?></td>
+                                        <td><?= $key['nama']; ?></td>
+                                        <td class="text-center">
+                                            <form action="/Admin/Kategori/<? //= $key['id']; 
+                                                                            ?>" method="POST" class="d-inline">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <input type="hidden" name="id" value="<? //= $key['id']; 
+                                                                                        ?>">
+                                                <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
+                                            </form>
+                                            <form action="/Admin/Kategori/<? //= $key['id']; 
+                                                                            ?>" method="POST" class="d-inline">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="PATCH">
+                                                <input type="hidden" name="status" value="arsip">
+                                                <button type="submit" class="btn btn-secondary btn-sm" id="btn-archive-kategori" title="Arsip" onclick="return confirm('Apakah anda ingin mengarsipkan kategori <? //= $key['nama']; 
+                                                                                                                                                                                                                ?> ?')"><i class="fas fa-archive "></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php $no++;
+                                endforeach
                                 ?>
                             </tbody>
                         </table>
@@ -102,7 +88,6 @@ echo $this->section('content');
 <!-- End of Main Content -->
 
 <!-- Modal Add Kategori -->
-<? //= view('modal/addKategori') 
-?>
+<?= view('modal/addFakultas') ?>
 
 <?= $this->endSection(); ?>
