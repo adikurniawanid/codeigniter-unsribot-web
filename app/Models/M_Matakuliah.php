@@ -14,11 +14,18 @@ class M_Matakuliah extends Model
     public function get_mata_kuliah_list()
     {
         return $this->db->query(
-            "SELECT m.kode, m.nama, j.nama as jurusan, m.sks, f.nama as fakultas
-            FROM mata_kuliah m
-            INNER JOIN jurusan j ON j.kode = m.jurusan_kode
-            INNER JOIN fakultas f ON f.kode = j.fakultas_kode
+            "SELECT * FROM view_mata_kuliah
             "
         )->getResultArray();
+    }
+
+    public function add_mata_kuliah($kode_mk_param, $nama_mk_param, $semester_param, $sks_param, $jurusan_kode_param)
+    {
+        return $this->db->query(
+            "call
+            add_mata_kuliah
+            ('$kode_mk_param', '$nama_mk_param', '$semester_param', '$sks_param', '$jurusan_kode_param')
+            "
+        );
     }
 }

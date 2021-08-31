@@ -8,19 +8,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Kategori') ?>">
+                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Matakuliah') ?>">
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label>Kode Mata Kuliah</label>
-                        <input maxlength="9" autocomplete="off" class="form-control" required type="text" name="kode_param" placeholder="Masukkan Kode..." />
+                        <input maxlength="9" autocomplete="off" class="form-control" required type="text" name="kode_mk_param" placeholder="Masukkan Kode..." />
                     </div>
                     <div class="form-group">
                         <label>Nama Mata Kuliah</label>
-                        <input maxlength="100" autocomplete="off" class="form-control" required type="text" name="nama_mata_kuliah_param" placeholder="Masukkan Nama Mata Kuliah..." />
+                        <input maxlength="100" autocomplete="off" class="form-control" required type="text" name="nama_mk_param" placeholder="Masukkan Nama Mata Kuliah..." />
+                    </div>
+                    <div class="form-group">
+                        <label>Semester</label>
+                        <input min="0" max="10" autocomplete="off" class="form-control" required type="number" name="semester_param" placeholder="Masukkan Semester..." />
                     </div>
                     <div class="form-group">
                         <label>Jurusan</label>
-                        <select class="custom-select" id="jurusan_param" name="jurusan_param" required>
+                        <select class="custom-select" id="jurusan_kode_param" name="jurusan_kode_param" required>
                             <option value="">Pilih Jurusan</option>
                             <?php
                             foreach ($jurusan_list as $row) : ?>
@@ -34,7 +38,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="buttonAddKategori" class="btn btn-primary">Simpan</button>
+                        <button type="submit" name="buttonAddMataKuliah" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>

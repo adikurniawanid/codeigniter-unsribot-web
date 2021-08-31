@@ -10,6 +10,8 @@ echo $this->section('content');
     <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
     <!-- Validation -->
+    <?= view('validation/flashData') ?>
+
     <div class="card border-left-primary">
         <div class="card-body">
             <a data-toggle="modal" data-target="#modalAddMataKuliah" class="btn btn-primary btn-icon-split mb-3">
@@ -32,8 +34,9 @@ echo $this->section('content');
                                     <th class="col-1">No</th>
                                     <th class="col-1">Kode</th>
                                     <th>Nama Mata Kuliah</th>
-                                    <th>Jurusan</thclass=>
+                                    <th class="col-1">Semester</th>
                                     <th class="col-1">SKS</th>
+                                    <th>Jurusan</thclass=>
                                     <th class="col-2">Aksi</th>
                                 </tr>
                             </thead>
@@ -42,8 +45,9 @@ echo $this->section('content');
                                     <th>No</th>
                                     <th>Kode MK</th>
                                     <th>Nama MK</th>
-                                    <th>Jurusan</th>
+                                    <th>Semester</th>
                                     <th>SKS</th>
+                                    <th>Jurusan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -55,10 +59,11 @@ echo $this->section('content');
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key['kode']; ?></td>
-                                        <td><?= $key['nama']; ?></td>
-                                        <td><?= $key['jurusan'] . "<br>" . $key['fakultas'] ?></td>
+                                        <td><?= $key['mata_kuliah']; ?></td>
+                                        <td class="text-center"><?= $key['semester']; ?></td>
                                         <td class="text-center"><?= $key['sks']; ?></td>
-                                        <td>
+                                        <td class="text-center"><?= $key['jurusan'] ?></td>
+                                        <td class="text-center">
                                             <form action="/Admin/Kategori/<? //= $key['id']; 
                                                                             ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
