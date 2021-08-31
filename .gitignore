@@ -2,6 +2,10 @@
 # Operating Specific Junk Files
 #-------------------------
 
+#dari Adi
+.env
+/writable
+
 # OS X
 .DS_Store
 .AppleDouble
