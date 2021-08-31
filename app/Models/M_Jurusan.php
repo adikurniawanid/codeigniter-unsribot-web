@@ -14,10 +14,17 @@ class M_Jurusan extends Model
     public function get_jurusan_list()
     {
         return $this->db->query(
-            "SELECT j.kode, j.nama as jurusan, f.nama as fakultas
-            FROM jurusan j
-            INNER JOIN fakultas f ON j.fakultas_kode = f.kode
-            ORDER BY 3,2"
+            "SELECT * FROM view_jurusan"
         )->getResultArray();
+    }
+
+    public function add_jurusan($kode_jurusan_param, $nama_fakultas_param, $kode_fakultas_param)
+    {
+        return $this->db->query(
+            "call
+            add_jurusan
+            ('$kode_jurusan_param', '$nama_fakultas_param', '$kode_fakultas_param')
+            "
+        );
     }
 }
