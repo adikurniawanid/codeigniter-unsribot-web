@@ -10,6 +10,8 @@ echo $this->section('content');
     <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
     <!-- Validation -->
+    <?= view('validation/flashData') ?>
+
     <div class="card border-left-primary">
         <div class="card-body">
             <a data-toggle="modal" data-target="#modalAddFakultas" class="btn btn-primary btn-icon-split mb-3">

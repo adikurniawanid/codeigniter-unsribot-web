@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Kategori') ?>">
+                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Fakultas') ?>">
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label>Kode Fakultas</label>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="buttonAddKategori" class="btn btn-primary">Simpan</button>
+                        <button type="submit" name="buttonAddFakultas" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
