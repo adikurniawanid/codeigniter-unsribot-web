@@ -24,4 +24,69 @@ class Mahasiswa extends BaseController
 
         return view('admin/mahasiswa', $data);
     }
+
+    public function addMahasiswa()
+    {
+        if (isset($_POST['buttonAddMahasiswa'])) {
+            $val = $this->validate([
+                'nim_param' => [
+                    'label' => 'NIM',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                        'is_unique' => '{field} tersebut telah digunakan, silahkan gunakan {field} lain yang belum terdaftar'
+                    ]
+                ],
+                'nama_param' => [
+                    'label' => 'Nama',
+                    'rules' => 'required|is_unique[view_dosen.NIP]',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
+                ],
+                'jurusan_id_param' => [
+                    'label' => 'Jurusan',
+                    'rules' => 'required|is_unique[view_dosen.NIP]',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
+                ],
+                'tahun_angkatan_param' => [
+                    'label' => 'Tahun Angkatan',
+                    'rules' => 'required|is_unique[view_dosen.NIP]',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
+                ],
+                'jenis_kelamin_id_param' => [
+                    'label' => 'Jenis Kelamin',
+                    'rules' => 'required|is_unique[view_dosen.NIP]',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
+                ]
+            ]);
+            if (!$val) {
+                session()->setFlashData('err', \Config\Services::validation()->listErrors());
+                return redirect()->to($_SERVER['HTTP_REFERER']);
+            } else {
+                $data = [
+                    'nim_param' => $this->request->getPost('nim_param'),
+                    'nama_param' => $this->request->getPost('nama_param'),
+                    'jurusan_id_param' => $this->request->getPost('jurusan_id_param'),
+                    'tahun_angkatan_param' => $this->request->getPost('tahun_angkatan_param'),
+                    'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
+                ];
+
+                $success = $this->model->add_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param']);
+                if ($success) {
+                    $message = 'Mahasiswa <b>' . $data['nama_param'] . '</b> berhasil ditambahkan';
+                    session()->setFlashData('message', $message);
+                    return redirect()->to($_SERVER['HTTP_REFERER']);
+                }
+            }
+        } else {
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+        }
+    }
 }

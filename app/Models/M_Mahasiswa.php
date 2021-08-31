@@ -14,11 +14,14 @@ class M_Mahasiswa extends Model
     public function get_mahasiswa_list()
     {
         return $this->db->query(
-            "SELECT m.nim, m.nama, j.nama as jurusan, f.nama as fakultas, m.angkatan
-            FROM mahasiswa m
-            INNER JOIN jurusan j ON j.kode = m.jurusan_kode
-            INNER JOIN fakultas f ON f.kode = j.fakultas_kode
-            ORDER BY 2"
+            "SELECT * FROM view_mahasiswa"
         )->getResultArray();
+    }
+
+    public function add_mahasiswa($nim_param, $nama_param, $jurusan_kode_param, $angkatan_param, $jenis_kelamin_id_param)
+    {
+        return $this->db->query(
+            "call add_mahasiswa('$nim_param', '$nama_param', '$jurusan_kode_param', '$angkatan_param', '$jenis_kelamin_id_param')"
+        );
     }
 }

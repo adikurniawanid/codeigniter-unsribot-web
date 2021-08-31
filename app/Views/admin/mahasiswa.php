@@ -10,6 +10,8 @@ echo $this->section('content');
     <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
     <!-- Validation -->
+    <?= view('validation/flashData') ?>
+
     <div class="card border-left-primary">
         <div class="card-body">
             <a data-toggle="modal" data-target="#modalAddMahasiswa" class="btn btn-primary btn-icon-split mb-3">
@@ -32,9 +34,10 @@ echo $this->section('content');
                                     <th class="col-1">No</th>
                                     <th class="col-2">NIM</th>
                                     <th class="col-2">Nama</th>
-                                    <th class="col-2">Jurusan</th>
-                                    <th class="col-2">Fakultas</th>
+                                    <th class="col-1">Jurusan</th>
+                                    <th class="col-1">Fakultas</th>
                                     <th class="col-1">Angkatan</th>
+                                    <th class="col-2">Dosen PA</th>
                                     <th class="col-2">Aksi</th>
                                 </tr>
                             </thead>
@@ -46,6 +49,7 @@ echo $this->section('content');
                                     <th>Jurusan</th>
                                     <th>Fakultas</th>
                                     <th>Angkatan</th>
+                                    <th>Dosen PA</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -60,6 +64,7 @@ echo $this->section('content');
                                         <td><?= $row['jurusan']; ?></td>
                                         <td><?= $row['fakultas']; ?></td>
                                         <td><?= $row['angkatan']; ?></td>
+                                        <td><?= $row['nama_dosen_pa']; ?></td>
                                         <td class="text-center">
                                             <form action="/Admin/Kategori/<? //= $key['id']; 
                                                                             ?>" method="POST" class="d-inline">
