@@ -14,9 +14,14 @@ class M_Dosen extends Model
     public function get_dosen_list()
     {
         return $this->db->query(
-            "SELECT nidn, nama 
-            FROM dosen
-            ORDER BY 2"
+            "SELECT * FROM view_dosen"
         )->getResultArray();
+    }
+
+    public function add_dosen($nip_param, $nama_param)
+    {
+        return $this->db->query(
+            "call add_dosen('$nip_param', '$nama_param')"
+        );
     }
 }

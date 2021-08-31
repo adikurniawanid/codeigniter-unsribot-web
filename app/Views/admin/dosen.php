@@ -10,6 +10,8 @@ echo $this->section('content');
     <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
     <!-- Validation -->
+    <?= view('validation/flashData') ?>
+
     <div class="card border-left-primary">
         <div class="card-body">
             <a data-toggle="modal" data-target="#modalAddDosen" class="btn btn-primary btn-icon-split mb-3">
@@ -50,7 +52,7 @@ echo $this->section('content');
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
-                                        <td><?= $key['nidn']; ?></td>
+                                        <td><?= $key['nip']; ?></td>
                                         <td><?= $key['nama']; ?></td>
                                         <td class="text-center">
                                             <form action="/Admin/Kategori/<? //= $key['id']; 

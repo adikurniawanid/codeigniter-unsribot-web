@@ -8,11 +8,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Kategori') ?>">
+                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Dosen') ?>">
                     <?= csrf_field(); ?>
                     <div class="form-group">
-                        <label>NIDN</label>
-                        <input maxlength="14" autocomplete="off" class="form-control" required type="text" name="nim_param" placeholder="Masukkan NIDN..." />
+                        <label>NIP</label>
+                        <input maxlength="18" autocomplete="off" class="form-control" required type="text" name="nip_param" placeholder="Masukkan NIP..." />
                     </div>
                     <div class="form-group">
                         <label>Nama Dosen</label>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="buttonAddKategori" class="btn btn-primary">Simpan</button>
+                        <button type="submit" name="buttonAddDosen" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
