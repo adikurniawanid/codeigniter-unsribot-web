@@ -89,4 +89,15 @@ class Matakuliah extends BaseController
             return redirect()->to($_SERVER['HTTP_REFERER']);
         }
     }
+
+    public function deleteMatakuliah($kode_mk_param)
+    {
+        $success = $this->model->delete_mata_kuliah($kode_mk_param);
+
+        if ($success) {
+            $message = 'Mata Kuliah <b>' . $kode_mk_param . '</b> berhasil dihapus';
+            session()->setFlashData('message', $message);
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+        }
+    }
 }

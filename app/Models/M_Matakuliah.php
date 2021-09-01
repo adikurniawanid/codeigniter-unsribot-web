@@ -28,4 +28,14 @@ class M_Matakuliah extends Model
             "
         );
     }
+
+    public function delete_mata_kuliah($kode_mk_param)
+    {
+        return $this->db->query(
+            "call
+            delete_mata_kuliah
+            ('$kode_mk_param')
+            "
+        );
+    }
 }
