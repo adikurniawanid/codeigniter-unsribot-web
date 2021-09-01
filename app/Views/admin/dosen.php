@@ -55,21 +55,16 @@ echo $this->section('content');
                                         <td><?= $key['nip']; ?></td>
                                         <td><?= $key['nama']; ?></td>
                                         <td class="text-center">
-                                            <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                            ?>" method="POST" class="d-inline">
+                                            <form action="/Admin/Dosen/<?= $key['nip']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
-                                                <input type="hidden" name="id" value="<? //= $key['id']; 
-                                                                                        ?>">
-                                                <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
+                                                <input type="hidden" name="nip" value="<?= $key['nip']; ?>">
+                                                <button type="submit" class="btn btn-success btn-sm" title="Edit"><i class="fas fa-edit "></i></button>
                                             </form>
-                                            <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                            ?>" method="POST" class="d-inline">
+                                            <form action="/Admin/Dosen/<?= $key['nip']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="PATCH">
-                                                <input type="hidden" name="status" value="arsip">
-                                                <button type="submit" class="btn btn-secondary btn-sm" id="btn-archive-kategori" title="Arsip" onclick="return confirm('Apakah anda ingin mengarsipkan kategori <? //= $key['nama']; 
-                                                                                                                                                                                                                ?> ?')"><i class="fas fa-archive "></i></button>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-danger btn-sm" id="btn-archive-kategori" title="Delete" onclick="return confirm('Apakah anda yakin ingin menghapus data dosen <?= $key['nip']; ?> ?')"><i class="fas fa-trash "></i></button>
                                             </form>
                                         </td>
                                     </tr>

@@ -62,4 +62,15 @@ class Dosen extends BaseController
             return redirect()->to($_SERVER['HTTP_REFERER']);
         }
     }
+
+    public function deleteDosen($nip_param)
+    {
+        $success = $this->model->delete_dosen($nip_param);
+
+        if ($success) {
+            $message = 'Dosen <b>' . $nip_param . '</b> berhasil dihapus';
+            session()->setFlashData('message', $message);
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+        }
+    }
 }

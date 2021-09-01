@@ -24,4 +24,11 @@ class M_Dosen extends Model
             "call add_dosen('$nip_param', '$nama_param')"
         );
     }
+
+    public function delete_dosen($nip_param)
+    {
+        return $this->db->query(
+            "call delete_dosen('$nip_param')"
+        );
+    }
 }
