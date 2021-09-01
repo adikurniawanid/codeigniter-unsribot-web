@@ -27,4 +27,14 @@ class M_Jurusan extends Model
             "
         );
     }
+
+    public function delete_jurusan($kode_jurusan_param)
+    {
+        return $this->db->query(
+            "call
+            delete_jurusan
+            ('$kode_jurusan_param')
+            "
+        );
+    }
 }

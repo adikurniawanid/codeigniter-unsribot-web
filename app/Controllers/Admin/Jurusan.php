@@ -74,4 +74,15 @@ class Jurusan extends BaseController
             return redirect()->to($_SERVER['HTTP_REFERER']);
         }
     }
+
+    public function deleteJurusan($kode_jurusan_param)
+    {
+        $success = $this->model->delete_jurusan($kode_jurusan_param);
+
+        if ($success) {
+            $message = 'Jurusan <b>' . $kode_jurusan_param . '</b> berhasil dihapus';
+            session()->setFlashData('message', $message);
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+        }
+    }
 }
