@@ -89,4 +89,15 @@ class Mahasiswa extends BaseController
             return redirect()->to($_SERVER['HTTP_REFERER']);
         }
     }
+
+    public function deleteMahasiswa($nim_param)
+    {
+        $success = $this->model->delete_mahasiswa($nim_param);
+
+        if ($success) {
+            $message = 'Mahasiswa <b>' . $nim_param . '</b> berhasil dihapus';
+            session()->setFlashData('message', $message);
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+        }
+    }
 }
