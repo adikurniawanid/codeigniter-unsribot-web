@@ -14,7 +14,7 @@ class M_Jurusan extends Model
     public function get_jurusan_list()
     {
         return $this->db->query(
-            "SELECT * FROM view_jurusan"
+            "SELECT * FROM jurusan"
         )->getResultArray();
     }
 
@@ -34,6 +34,23 @@ class M_Jurusan extends Model
             "call
             delete_jurusan
             ('$kode_jurusan_param')
+            "
+        );
+    }
+
+    public function get_detail_edit_jurusan($kode_jurusan_param)
+    {
+        return $this->db->query(
+            "call get_detail_edit_jurusan('$kode_jurusan_param')"
+        )->getRowArray();
+    }
+
+    public function edit_jurusan($kode_jurusan_param, $nama_fakultas_param, $kode_fakultas_param)
+    {
+        return $this->db->query(
+            "call
+            edit_jurusan
+            ('$kode_jurusan_param', '$nama_fakultas_param', '$kode_fakultas_param')
             "
         );
     }

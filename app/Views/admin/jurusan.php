@@ -58,13 +58,13 @@ echo $this->section('content');
                                         <td><?= $key['jurusan']; ?></td>
                                         <td><?= $key['fakultas']; ?></td>
                                         <td class="text-center">
-                                            <form action="/Admin/Kategori/<? //= $key['id']; 
+                                            <form action="/Admin/Jurusan/<?= $key['kode'];
                                                                             ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
-                                                <input type="hidden" name="id" value="<? //= $key['id']; 
+                                                <input type="hidden" name="id" value="<?= $key['kode'];
                                                                                         ?>">
-                                                <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
+                                                <button type="submit" class="btn btn-success btn-sm" title="Edit"><i class="fas fa-edit "></i></button>
                                             </form>
                                             <form action="/Admin/Jurusan/<?= $key['kode'];
                                                                             ?>" method="POST" class="d-inline">
