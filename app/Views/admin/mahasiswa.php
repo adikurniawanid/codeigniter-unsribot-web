@@ -36,6 +36,7 @@ echo $this->section('content');
                                     <th class="col-2">Nama</th>
                                     <th class="col-1">Jurusan</th>
                                     <th class="col-1">Fakultas</th>
+                                    <th class="col-1">Jenis Kelamin</th>
                                     <th class="col-1">Angkatan</th>
                                     <th class="col-2">Dosen PA</th>
                                     <th class="col-2">Aksi</th>
@@ -48,6 +49,7 @@ echo $this->section('content');
                                     <th>Nama Mahasiswa</th>
                                     <th>Jurusan</th>
                                     <th>Fakultas</th>
+                                    <th>Jenis Kelamin</th>
                                     <th>Angkatan</th>
                                     <th>Dosen PA</th>
                                     <th>Aksi</th>
@@ -63,16 +65,15 @@ echo $this->section('content');
                                         <td><?= $row['nama']; ?></td>
                                         <td><?= $row['jurusan']; ?></td>
                                         <td><?= $row['fakultas']; ?></td>
+                                        <td><?= $row['jenis_kelamin']; ?></td>
                                         <td><?= $row['angkatan']; ?></td>
                                         <td><?= $row['nama_dosen_pa']; ?></td>
                                         <td class="text-center">
-                                            <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                            ?>" method="POST" class="d-inline">
+                                            <form action="/Admin/Mahasiswa/<?= $row['nim']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
-                                                <input type="hidden" name="id" value="<? //= $key['id']; 
-                                                                                        ?>">
-                                                <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
+                                                <input type="hidden" name="nim_param" value="<?= $row['nim']; ?>">
+                                                <button type="submit" class="btn btn-success btn-sm" title="Edit"><i class="fas fa-edit "></i></button>
                                             </form>
                                             <form action="/Admin/Mahasiswa/<?= $row['nim']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
