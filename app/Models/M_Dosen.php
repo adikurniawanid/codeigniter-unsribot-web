@@ -14,7 +14,7 @@ class M_Dosen extends Model
     public function get_dosen_list()
     {
         return $this->db->query(
-            "SELECT * FROM view_dosen"
+            "SELECT nip, nama FROM dosen"
         )->getResultArray();
     }
 
@@ -29,6 +29,20 @@ class M_Dosen extends Model
     {
         return $this->db->query(
             "call delete_dosen('$nip_param')"
+        );
+    }
+
+    public function get_detail_edit_dosen($nip_param)
+    {
+        return $this->db->query(
+            "call get_detail_edit_dosen('$nip_param')"
+        )->getRowArray();
+    }
+
+    public function edit_dosen($nip_param, $nama_param)
+    {
+        return $this->db->query(
+            "call edit_dosen('$nip_param', '$nama_param')"
         );
     }
 }
