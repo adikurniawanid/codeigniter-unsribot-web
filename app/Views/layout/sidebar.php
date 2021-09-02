@@ -7,7 +7,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin/home') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-robot"></i>
                 </div>
@@ -19,18 +19,27 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('admin/home') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Beranda</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('Admin/QueryData') ?>">
+                    <i class="fas fa-database fa-cog"></i>
+                    <span>Query Data</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-database fa-cog"></i>
+                    <i class="fas fa-server fa-cog"></i>
                     <span>Bank Data</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -38,7 +47,7 @@
                         <a class="collapse-item" href="<?= base_url('admin/mahasiswa'); ?>">Mahasiswa</a>
                         <a class="collapse-item" href="<?= base_url('admin/dosen'); ?>">Dosen</a>
                         <a class="collapse-item" href="<?= base_url('admin/matakuliah'); ?>">Mata Kuliah</a>
-                        <a class="collapse-item" href="<?= base_url('admin/kelas'); ?>">Kelas</a>
+                        <!-- <a class="collapse-item" href="<?= base_url('admin/kelas'); ?>">Kelas</a> -->
                         <a class="collapse-item" href="<?= base_url('admin/jurusan'); ?>">Jurusan</a>
                         <a class="collapse-item" href="<?= base_url('admin/fakultas'); ?>">Fakultas</a>
                     </div>

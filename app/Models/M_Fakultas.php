@@ -15,7 +15,7 @@ class M_Fakultas extends Model
     {
         return $this->db->query(
             "SELECT *
-            FROM view_fakultas
+            FROM fakultas
             "
         )->getResultArray();
     }

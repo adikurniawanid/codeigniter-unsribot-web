@@ -1,6 +1,7 @@
 <?php
 echo $this->extend('/layout/template');
 echo $this->section('content');
+d($kelas_list)
 ?>
 
 <!-- Begin Page Content -->
@@ -30,8 +31,8 @@ echo $this->section('content');
                             <thead class="text-center">
                                 <tr>
                                     <th>No</th>
-                                    <th>NIDN</th>
-                                    <th>Nama Dosen</th>
+                                    <th>Ruangan</th>
+                                    <th>Tahun Ajar</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -44,29 +45,34 @@ echo $this->section('content');
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td class="text-center">No</td>
-                                    <td>NIDN</td>
-                                    <td>Nama Dosen</td>
-                                    <td class="text-center">
-                                        <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                        ?>" method="POST" class="d-inline">
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="_method" value="PUT">
-                                            <input type="hidden" name="id" value="<? //= $key['id']; 
-                                                                                    ?>">
-                                            <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
-                                        </form>
-                                        <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                        ?>" method="POST" class="d-inline">
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="_method" value="PATCH">
-                                            <input type="hidden" name="status" value="arsip">
-                                            <button type="submit" class="btn btn-secondary btn-sm" id="btn-archive-kategori" title="Arsip" onclick="return confirm('Apakah anda ingin mengarsipkan kategori <? //= $key['nama']; 
-                                                                                                                                                                                                            ?> ?')"><i class="fas fa-archive "></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                <?php $no = 1;
+                                foreach ($kelas_list as $key) :
+                                ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no; ?></td>
+                                        <td>NIDN</td>
+                                        <td>Nama Dosen</td>
+                                        <td class="text-center">
+                                            <form action="/Admin/Kategori/<? //= $key['id']; 
+                                                                            ?>" method="POST" class="d-inline">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <input type="hidden" name="id" value="<? //= $key['id']; 
+                                                                                        ?>">
+                                                <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
+                                            </form>
+                                            <form action="/Admin/Kategori/<? //= $key['id']; 
+                                                                            ?>" method="POST" class="d-inline">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="PATCH">
+                                                <input type="hidden" name="status" value="arsip">
+                                                <button type="submit" class="btn btn-secondary btn-sm" id="btn-archive-kategori" title="Arsip" onclick="return confirm('Apakah anda ingin mengarsipkan kategori <? //= $key['nama']; 
+                                                                                                                                                                                                                ?> ?')"><i class="fas fa-archive "></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php $no++;
+                                endforeach ?>
                             </tbody>
                         </table>
                     </div>

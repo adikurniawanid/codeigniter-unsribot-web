@@ -15,13 +15,12 @@ echo $this->section('content');
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Jumlah Kategori</div>
+                                Jumlah Mahasiswa</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <? //= $jumlahKategori; 
-                                ?> Kategori</div>
+                                <?= $data_list['jumlah_mahasiswa']; ?> Mahasiswa</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-layer-group fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-circle  fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -33,12 +32,12 @@ echo $this->section('content');
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Jumlah Pertanyaan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><? //= $jumlahPertanyaan; 
-                                                                                ?> Pertanyaan</div>
+                                Jumlah Dosen</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <?= $data_list['jumlah_dosen']; ?> Dosen</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-question-circle fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-circle fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -50,9 +49,9 @@ echo $this->section('content');
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Jumlah Sesi</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><? //= $jumlahSesi; 
-                                                                                ?> Sesi</div>
+                                Jumlah Mata Kuliah</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data_list['jumlah_matakuliah'];
+                                                                                ?> Mata Kuliah</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
@@ -67,19 +66,21 @@ echo $this->section('content');
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Jumlah Peserta</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><? //= $jumlahPeserta; 
-                                                                                ?> Peserta</div>
+                                Jumlah Jurusan</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $data_list['jumlah_jurusan'];
+                                                                                ?> Jurusan</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-user-circle fa-2x text-gray-300"></i>
+                            <i class="fas fa-layer-group fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- Content Row -->
+
 </div>
 <!-- /.container-fluid -->
 </div>

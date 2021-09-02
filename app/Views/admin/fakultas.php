@@ -14,12 +14,12 @@ echo $this->section('content');
 
     <div class="card border-left-primary">
         <div class="card-body">
-            <a data-toggle="modal" data-target="#modalAddFakultas" class="btn btn-primary btn-icon-split mb-3">
+            <!-- <a data-toggle="modal" data-target="#modalAddFakultas" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fa fa-plus"></i>
                 </span>
                 <span class="text">Tambah Data</span>
-            </a>
+            </a> -->
 
             <!-- DataTales -->
             <div class="card shadow mb-4">
@@ -34,7 +34,7 @@ echo $this->section('content');
                                     <th class="col-1">No</th>
                                     <th class="col-1">Kode Fakultas</th>
                                     <th>Nama Fakultas</th>
-                                    <th class="col-2">Aksi</th>
+                                    <!-- <th class="col-2">Aksi</th> -->
                                 </tr>
                             </thead>
                             <tfoot class="text-center">
@@ -42,7 +42,7 @@ echo $this->section('content');
                                     <th>No</th>
                                     <th>Kode Fakultas</th>
                                     <th>Nama Fakultas</th>
-                                    <th>Aksi</th>
+                                    <!-- <th>Aksi</th> -->
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -53,24 +53,6 @@ echo $this->section('content');
                                         <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key['kode']; ?></td>
                                         <td><?= $key['nama']; ?></td>
-                                        <td class="text-center">
-                                            <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                            ?>" method="POST" class="d-inline">
-                                                <?= csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="PUT">
-                                                <input type="hidden" name="id" value="<? //= $key['id']; 
-                                                                                        ?>">
-                                                <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
-                                            </form>
-                                            <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                            ?>" method="POST" class="d-inline">
-                                                <?= csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="PATCH">
-                                                <input type="hidden" name="status" value="arsip">
-                                                <button type="submit" class="btn btn-secondary btn-sm" id="btn-archive-kategori" title="Arsip" onclick="return confirm('Apakah anda ingin mengarsipkan kategori <? //= $key['nama']; 
-                                                                                                                                                                                                                ?> ?')"><i class="fas fa-archive "></i></button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 <?php $no++;
                                 endforeach
