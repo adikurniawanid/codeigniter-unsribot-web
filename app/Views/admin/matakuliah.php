@@ -64,13 +64,11 @@ echo $this->section('content');
                                         <td class="text-center"><?= $key['sks']; ?></td>
                                         <td class="text-center"><?= $key['jurusan'] ?></td>
                                         <td class="text-center">
-                                            <form action="/Admin/Kategori/<? //= $key['id']; 
-                                                                            ?>" method="POST" class="d-inline">
+                                            <form action="/Admin/Matakuliah/<?= $key['kode']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
-                                                <input type="hidden" name="id" value="<? //= $key['id']; 
-                                                                                        ?>">
-                                                <button type="submit" class="btn btn-success btn-sm" id="btn-edit-kategori" title="Edit"><i class="fas fa-edit "></i></button>
+                                                <input type="hidden" name="kode_param" value="<?= $key['kode']; ?>">
+                                                <button type="submit" class="btn btn-success btn-sm" title="Edit"><i class="fas fa-edit "></i></button>
                                             </form>
                                             <form action="/Admin/Matakuliah/<?= $key['kode']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>

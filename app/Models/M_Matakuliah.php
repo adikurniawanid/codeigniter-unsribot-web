@@ -14,7 +14,7 @@ class M_Matakuliah extends Model
     public function get_mata_kuliah_list()
     {
         return $this->db->query(
-            "SELECT * FROM view_mata_kuliah
+            "SELECT * FROM mata_kuliah
             "
         )->getResultArray();
     }
@@ -35,6 +35,26 @@ class M_Matakuliah extends Model
             "call
             delete_mata_kuliah
             ('$kode_mk_param')
+            "
+        );
+    }
+
+    public function get_detail_edit_mata_kuliah($kode_mk_param)
+    {
+        return $this->db->query(
+            "call
+            get_detail_edit_mata_kuliah
+            ('$kode_mk_param')
+            "
+        )->getRowArray();
+    }
+
+    public function edit_mata_kuliah($kode_mk_param, $nama_mk_param, $semester_param, $sks_param, $jurusan_kode_param)
+    {
+        return $this->db->query(
+            "call
+            edit_mata_kuliah
+            ('$kode_mk_param', '$nama_mk_param', '$semester_param', '$sks_param', '$jurusan_kode_param')
             "
         );
     }
