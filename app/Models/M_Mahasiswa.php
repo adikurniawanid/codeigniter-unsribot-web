@@ -23,14 +23,16 @@ class M_Mahasiswa extends Model
         $nama_param,
         $jurusan_kode_param,
         $angkatan_param,
-        $jenis_kelamin_id_param
+        $jenis_kelamin_id_param,
+        $dosen_pa_nip_param
     ) {
         return $this->db->query(
             "call add_mahasiswa('$nim_param', 
             '$nama_param', 
             '$jurusan_kode_param', 
             '$angkatan_param', 
-            '$jenis_kelamin_id_param')"
+            '$jenis_kelamin_id_param',
+            '$dosen_pa_nip_param')"
         );
     }
 
@@ -53,14 +55,16 @@ class M_Mahasiswa extends Model
         $nama_param,
         $jurusan_kode_param,
         $angkatan_param,
-        $jenis_kelamin_id_param
+        $jenis_kelamin_id_param,
+        $dosen_pa_nip_param
     ) {
         return $this->db->query(
             "call edit_mahasiswa('$nim_param',
         '$nama_param',
         '$jurusan_kode_param',
         '$angkatan_param',
-        '$jenis_kelamin_id_param')"
+        '$jenis_kelamin_id_param',
+        '$dosen_pa_nip_param')"
         );
     }
 }

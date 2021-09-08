@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\M_Dosen;
 use App\Models\M_Jurusan;
 use App\Models\M_Mahasiswa;
 
@@ -12,6 +13,7 @@ class Mahasiswa extends BaseController
     {
         $this->model = new M_Mahasiswa();
         $this->modelJurusan = new M_Jurusan();
+        $this->modelDosen = new M_Dosen();
     }
 
     public function index()
@@ -20,6 +22,7 @@ class Mahasiswa extends BaseController
             'judul' => 'Mahasiswa',
             'mahasiswa_list' => $this->model->get_mahasiswa_list(),
             'jurusan_list' => $this->modelJurusan->get_jurusan_list(),
+            'dosen_list' => $this->modelDosen->get_dosen_list(),
         ];
 
         return view('admin/mahasiswa', $data);
@@ -76,9 +79,10 @@ class Mahasiswa extends BaseController
                     'jurusan_id_param' => $this->request->getPost('jurusan_id_param'),
                     'tahun_angkatan_param' => $this->request->getPost('tahun_angkatan_param'),
                     'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
+                    'pa_id_param' => $this->request->getPost('pa_id_param'),
                 ];
 
-                $success = $this->model->add_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param']);
+                $success = $this->model->add_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param']);
                 if ($success) {
                     $message = 'Mahasiswa <b>' . $data['nama_param'] . '</b> berhasil ditambahkan';
                     session()->setFlashData('message', $message);
@@ -107,6 +111,7 @@ class Mahasiswa extends BaseController
             'judul' => 'Edit Mahasiswa',
             'mahasiswa' => $this->model->get_detail_edit_mahasiswa($nim_param),
             'jurusan_list' => $this->modelJurusan->get_jurusan_list(),
+            'dosen_list' => $this->modelDosen->get_dosen_list(),
         ];
 
         echo view('admin/mahasiswaEdit', $data);
@@ -161,9 +166,10 @@ class Mahasiswa extends BaseController
                     'jurusan_id_param' => $this->request->getPost('jurusan_id_param'),
                     'tahun_angkatan_param' => $this->request->getPost('tahun_angkatan_param'),
                     'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
+                    'pa_id_param' => $this->request->getPost('pa_id_param'),
                 ];
 
-                $success = $this->model->edit_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param']);
+                $success = $this->model->edit_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param']);
 
                 if ($success) {
                     $message = 'Mahasiswa <b>' . $data['nama_param'] . '</b> berhasil diedit';

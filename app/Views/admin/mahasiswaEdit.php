@@ -53,6 +53,17 @@ echo $this->section('content');
                             <label>Tahun Angkatan</label>
                             <input value="<?= $mahasiswa['angkatan']; ?>" maxlength="4" autocomplete="off" class="form-control" required type="year" name="tahun_angkatan_param" placeholder="Masukkan Tahun Angkatan..." />
                         </div>
+                        <div class="form-group">
+                            <label>Dosen Pembimbing Akademik</label>
+                            <?php $selectedPA = $mahasiswa['dosen_pa_nip']; ?>
+                            <select class="custom-select" id="pa_id_param" name="pa_id_param">
+                                <option value="null">-</option>
+                                <?php
+                                foreach ($dosen_list as $row) : ?>
+                                    <option <?= $row['nip'] == $selectedPA ? "selected='selected'" : ""; ?> value="<?= $row['nip'] ?>"><?= $row['nama']  ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
                         <label>Jenis Kelamin</label>
                         <br>
                         <div class="form-check form-check-inline">
