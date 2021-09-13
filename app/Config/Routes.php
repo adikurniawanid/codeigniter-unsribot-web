@@ -61,6 +61,9 @@ $routes->delete('/Admin/Mahasiswa/(:any)', 'Admin/Mahasiswa::deleteMahasiswa/$1'
 $routes->put('/Admin/Mahasiswa/(:any)', 'Admin/Mahasiswa::editMahasiswa/$1');
 
 $routes->post('/Admin/QueryData', 'Admin/QueryData::prosesQuery');
+
+$routes->post('/Auth/Login', 'Auth/Login::login');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

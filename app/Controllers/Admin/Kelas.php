@@ -14,6 +14,10 @@ class Kelas extends BaseController
 
     public function index()
     {
+        if (!isset($_SESSION['user_id'])) {
+            return redirect()->to(base_url('Auth/Login'));
+        }
+
         $data = [
             'judul' => 'Kelas',
             'kelas_list' => $this->model->get_kelas_list(),

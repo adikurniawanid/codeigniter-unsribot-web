@@ -16,6 +16,10 @@ class Matakuliah extends BaseController
 
     public function index()
     {
+        if (!isset($_SESSION['user_id'])) {
+            return redirect()->to(base_url('Auth/Login'));
+        }
+
         $data = [
             'judul' => 'Mata Kuliah',
             'mata_kuliah_list' => $this->model->get_mata_kuliah_list(),

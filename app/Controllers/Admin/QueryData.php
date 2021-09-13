@@ -14,6 +14,10 @@ class QueryData extends BaseController
 
 	public function index()
 	{
+		if (!isset($_SESSION['user_id'])) {
+			return redirect()->to(base_url('Auth/Login'));
+		}
+
 		$data = [
 			'judul' => 'Query Select Data',
 		];

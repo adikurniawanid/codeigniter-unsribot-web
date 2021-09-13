@@ -16,6 +16,10 @@ class Jurusan extends BaseController
 
     public function index()
     {
+        if (!isset($_SESSION['user_id'])) {
+            return redirect()->to(base_url('Auth/Login'));
+        }
+
         $data = [
             'judul' => 'Jurusan',
             'jurusan_list' => $this->model->get_jurusan_list(),
