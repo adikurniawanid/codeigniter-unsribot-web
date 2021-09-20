@@ -47,21 +47,28 @@ class QueryData extends BaseController
 					'result' => $this->request->getPost('sql_param'),
 				];
 
-				try {
-					$resultQuery = $this->db->query($data['result'])->getResultArray();
-					$data = [
-						'judul' => 'Query Select Data',
-						'result' => $this->request->getPost('sql_param'),
-						'resultQuery' => $resultQuery,
-					];
-				} catch (\Throwable $th) {
-					$message = 'Query gagal diproses. Silahkan periksa kembali query';
+				if (strtolower(substr($data['result'], 0, 6)) === 'select') {
+
+					try {
+						$resultQuery = $this->db->query($data['result'])->getResultArray();
+						$data = [
+							'judul' => 'Query Select Data',
+							'result' => $this->request->getPost('sql_param'),
+							'resultQuery' => $resultQuery,
+						];
+					} catch (\Throwable $th) {
+						$message = 'Query gagal diproses. Silahkan periksa kembali query';
+						session()->setFlashData('err', $message);
+						return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();
+					}
+
+					return view('admin/queryData', $data);
+					// return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();
+				} else {
+					$message = 'Hanya menerima DML SELECT. Silahkan periksa kembali query';
 					session()->setFlashData('err', $message);
 					return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();
 				}
-
-				return view('admin/queryData', $data);
-				// return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();
 			}
 		} else {
 			return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();
