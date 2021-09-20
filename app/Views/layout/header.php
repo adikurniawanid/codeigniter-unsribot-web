@@ -18,6 +18,7 @@
     <link href=<?= base_url('assets/css/sb-admin-2.min.css'); ?> rel=" stylesheet">
     <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 
+    <!-- Datatable download buttons style -->
     <link href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css" rel="stylesheet">
 
     <!-- CKEDITOR -->

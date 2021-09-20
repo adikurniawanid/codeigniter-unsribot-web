@@ -28,6 +28,16 @@
             <hr class="sidebar-divider">
 
             <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('admin/nltosql') ?>">
+                    <i class="fas fa-comments fa-cog"></i>
+                    <span>NL to SQL</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('Admin/QueryData') ?>">
                     <i class="fas fa-database fa-cog"></i>
                     <span>Query Data</span>
