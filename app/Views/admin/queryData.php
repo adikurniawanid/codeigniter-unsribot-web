@@ -37,6 +37,9 @@ function arrayToTable($table)
 
     <!-- Content Row -->
     <div class="card border-left-primary">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><?= "Input :" ?></h6>
+        </div>
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/QueryData') ?>">
                 <?= csrf_field(); ?>
