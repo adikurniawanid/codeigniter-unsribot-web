@@ -18,7 +18,8 @@ class Nltosql extends BaseController
 		}
 
 		$data = [
-			'judul' => 'Natural Language to Structured Query Language',
+			'judul' => 'NL to SQL',
+			'resultQuery' => $this->db->query('SELECT * FROM mahasiswa')->getResultArray()
 		];
 
 		return view('admin/nltosql', $data);

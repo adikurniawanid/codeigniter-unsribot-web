@@ -31,7 +31,7 @@ function arrayToTable($table)
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 text-gray-800"><b>[Work-in-Progress]</b></h1>
-    <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">Natural Language to Structured Query Language</h1>
 
 
     <!-- Validation -->
@@ -39,6 +39,9 @@ function arrayToTable($table)
 
     <!-- Content Row -->
     <div class="card border-left-primary">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><?= "Input :" ?></h6>
+        </div>
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data" action="#">
                 <?= csrf_field(); ?>
@@ -50,6 +53,18 @@ function arrayToTable($table)
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
             </form>
+        </div>
+    </div>
+    <br>
+    <div class="card border-left-primary">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><?= "Proses :" ?></h6>
+        </div>
+        <div class="card-body">
+            <pre>
+            <?php system('/bin/python3 /home/akdev/Documents/GitHub/web-unsribot/public/PyCode/test.py');
+            ?>
+            </pre>
         </div>
     </div>
     <!-- Content Row -->
