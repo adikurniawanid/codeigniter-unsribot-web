@@ -62,7 +62,7 @@ function arrayToTable($table)
         </div>
         <div class="card-body">
             <pre>
-            <?php system('/bin/python3 /home/akdev/Documents/GitHub/web-unsribot/public/PyCode/test.py');
+            <?php system('/bin/python3 /home/akdev/Documents/GitHub/web-unsribot/app/PyCode/test.py');
             ?>
             </pre>
         </div>
