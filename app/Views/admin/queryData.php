@@ -36,20 +36,34 @@ function arrayToTable($table)
     <?= view('validation/flashData') ?>
 
     <!-- Content Row -->
-    <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/QueryData') ?>">
-        <?= csrf_field(); ?>
-        <div class="form-group">
-            <textarea autocomplete="off" class="form-control" type="text" name="sql_param" id="sql_param" placeholder="Masukkan SQL Query..." rows="3" autofocus><?= old('sql_param'); ?></textarea>
+    <div class="card border-left-primary">
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/QueryData') ?>">
+                <?= csrf_field(); ?>
+                <div class="form-group">
+                    <textarea autocomplete="off" class="form-control" type="text" name="sql_param" id="sql_param" placeholder="Masukkan SQL Query..." rows="3" autofocus><?= old('sql_param'); ?></textarea>
+                </div>
+                <div>
+                    <button type="submit" name="buttonProsesQuery" class="btn btn-primary">Proses Query</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <button type="submit" name="buttonProsesQuery" class="btn btn-primary">Proses Query</button>
-            <button type="reset" class="btn btn-secondary">Reset</button>
-        </div>
-    </form>
+    </div>
     <!-- Content Row -->
+    <br>
     <?php
-    if (!empty($resultQuery)) {
-        arrayToTable($resultQuery);
+    if (!empty($resultQuery)) { ?>
+        <div class="card border-left-primary">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary"><?= "Result :" ?></h6>
+            </div>
+            <div class="card-body">
+                <?php
+                arrayToTable($resultQuery); ?>
+            </div>
+        </div>
+    <?php
     }
     ?>
 </div>
