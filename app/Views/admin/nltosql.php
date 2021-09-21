@@ -43,37 +43,44 @@ function arrayToTable($table)
             <h6 class="m-0 font-weight-bold text-primary"><?= "Input :" ?></h6>
         </div>
         <div class="card-body">
-            <form method="POST" enctype="multipart/form-data" action="#">
+            <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/NlToSql') ?>">
                 <?= csrf_field(); ?>
                 <div class="form-group">
-                    <textarea autocomplete="off" class="form-control" type="text" name="sql_param" id="sql_param" placeholder="Masukkan Natural Language..." rows="3" autofocus><?= old('sql_param'); ?></textarea>
+                    <textarea autocomplete="off" class="form-control" type="text" name="input_param" id="input_param" placeholder="Masukkan Natural Language..." rows="3" autofocus><?= old('input_param'); ?></textarea>
                 </div>
                 <div>
-                    <button type="submit" name="buttonProsesQuery" class="btn btn-primary">Proses Query</button>
+                    <button type="submit" name="buttonProsesNlToSql" class="btn btn-primary">Proses NL to SQL</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
             </form>
         </div>
     </div>
-    <br>
-    <div class="card border-left-primary">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"><?= "Proses :" ?></h6>
-        </div>
-        <div class="card-body">
-            <pre>
-            <?php system('/bin/python3 /home/akdev/Documents/GitHub/web-unsribot/app/PyCode/test.py');
-            ?>
-            </pre>
-        </div>
-    </div>
-    <!-- Content Row -->
-    <br>
-    <?php
-    if (!empty($resultQuery)) { ?>
+
+    <?php if (!empty($text)) : ?>
+        <br>
         <div class="card border-left-primary">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary"><?= "Result :" ?></h6>
+                <h6 class="m-0 font-weight-bold text-primary"><?= "Proses :" ?></h6>
+            </div>
+            <div class="card-body">
+                <pre>
+            <?php
+            $text = escapeshellarg($text);
+            system("/bin/python3 /home/akdev/Documents/GitHub/web-unsribot/app/PyCode/test.py {$text}");
+            ?>
+            </pre>
+            </div>
+        </div>
+        <br>
+    <?php endif ?>
+
+    <!-- Content Row -->
+    <?php
+    if (!empty($resultQuery)) { ?>
+        <br>
+        <div class="card border-left-primary">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary"><?= "Result [Dummy] :" ?></h6>
             </div>
             <div class="card-body">
                 <?php
