@@ -28,7 +28,7 @@
             <hr class="sidebar-divider">
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/nltosql') ?>">
+                <a class="nav-link" href="<?= base_url('admin/NlToSql') ?>">
                     <i class="fas fa-comments fa-cog"></i>
                     <span>NL to SQL</span>
                 </a>
