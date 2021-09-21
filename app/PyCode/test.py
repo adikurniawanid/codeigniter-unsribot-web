@@ -1,3 +1,4 @@
+import sys
 from re import sub
 
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
@@ -96,10 +97,8 @@ stopwords = ['a', 'ada', 'adalah', 'adanya', 'adapun', 'agak', 'agaknya', 'agar'
              'ujar', 'ujarnya', 'umumnya', 'ungkap', 'ungkapnya', 'untuk', 'usah', 'usai', 'v', 'w', 'waduh', 'wah', 'wahai',
              'waktunya', 'walau', 'walaupun', 'wong', 'x', 'y', 'ya', 'yaitu', 'yakin', 'yakni', 'yang', 'z']
 
-text = """
-Tampilkan DaftAR NAMa doSEN darI Matakuliah KALkulus
-seNANG-SenaNG di Hari Jum'at
-"""
+
+text = sys.argv[1]
 
 var_masukan = stemmer.stem(sub(r"[^\w\s]", "", (text)))
 
