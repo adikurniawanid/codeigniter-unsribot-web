@@ -32,7 +32,7 @@ echo $this->section('content');
                             <thead class="text-center">
                                 <tr>
                                     <th class="col-1">No</th>
-                                    <th class="col-2">NIDN</th>
+                                    <th class="col-2">NIP</th>
                                     <th>Nama Dosen</th>
                                     <th class="col-2">Aksi</th>
                                 </tr>
@@ -40,7 +40,7 @@ echo $this->section('content');
                             <tfoot class="text-center">
                                 <tr>
                                     <th>No</th>
-                                    <th>NIDN</th>
+                                    <th>NIP</th>
                                     <th>Nama Dosen</th>
                                     <th>Aksi</th>
                                 </tr>

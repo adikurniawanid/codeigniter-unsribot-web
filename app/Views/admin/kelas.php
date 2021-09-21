@@ -39,7 +39,7 @@ d($kelas_list)
                             <tfoot class="text-center">
                                 <tr>
                                     <th>No</th>
-                                    <th>NIDN</th>
+                                    <th>NIP</th>
                                     <th>Nama Dosen</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -50,7 +50,7 @@ d($kelas_list)
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
-                                        <td>NIDN</td>
+                                        <td>NIP</td>
                                         <td>Nama Dosen</td>
                                         <td class="text-center">
                                             <form action="/Admin/Kategori/<? //= $key['id']; 
