@@ -66,7 +66,7 @@ function arrayToTable($table)
                 <pre>
             <?php
             $text = escapeshellarg($text);
-            system("/bin/python3 /home/akdev/Documents/GitHub/web-unsribot/app/PyCode/test.py {$text}");
+            system("/bin/python3 /home/akdev/Documents/GitHub/web-unsribot/app/PyCode/Main.py {$text}");
             ?>
             </pre>
             </div>
