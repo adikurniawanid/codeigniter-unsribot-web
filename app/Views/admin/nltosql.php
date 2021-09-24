@@ -4,16 +4,31 @@ echo $this->section('content');
 
 function arrayToTable($table)
 {
-    echo "<div class='table-responsive text-center'>";
+    echo "<div class='table-responsive'>";
 
     echo "<table class='table table-bordered table-hover' 
     id='toDataTable' width='100%' cellspacing='0'>";
 
+    echo "<thead class='text-center'>";
+    echo "<tr>";
     // Table header
     foreach ($table[0] as $key => $value) {
         echo "<th>" . $key . "</th>";
     }
 
+    echo "</tr>";
+    echo "</thead>";
+
+    echo "<tfoot class='text-center'>";
+    echo "<tr>";
+    // Table footer
+    foreach ($table[0] as $key => $value) {
+        echo "<th>" . $key . "</th>";
+    }
+    echo "</tr>";
+    echo "</tfoot>";
+
+    echo "<tbody class='text-center'>";
     // Table body
     foreach ($table as $value) {
         echo "<tr>";
@@ -22,6 +37,7 @@ function arrayToTable($table)
         }
         echo "</tr>";
     }
+    echo "</tbody'>";
     echo "</table>";
     echo "</div>";
 }
