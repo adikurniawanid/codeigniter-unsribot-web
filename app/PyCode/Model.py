@@ -16,6 +16,3 @@ def querySQL(sql):
     cursor.execute(sql)
     records = cursor.fetchall()
     return records
-
-
-print(querySQL("SELECT col.column_name FROM information_schema.columns col JOIN information_schema.views vie ON vie.table_schema=col.table_schema AND vie.table_name=col.table_name where col.table_schema not in ('sys', 'information_schema','mysql', 'performance_schema') AND vie.table_schema='simak_simulasi'"))
