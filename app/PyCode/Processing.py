@@ -16,6 +16,7 @@ def isPerintah(token):
     for w in token:
         if w in kalimatPerintah:
             result = True
+            break
         else:
             result = False
     return result
