@@ -65,6 +65,7 @@ $routes->post('/Admin/NlToSql', 'Admin/NlToSql::prosesNlToSql');
 
 
 $routes->post('/Auth/Login', 'Auth/Login::login');
+$routes->post('/Guest', 'Guest/Home::addNLDataset');
 
 /*
  * --------------------------------------------------------------------
