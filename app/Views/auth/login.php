@@ -34,6 +34,7 @@
                                         </div>
                                         <hr>
                                         <button type="submit" name="buttonLogin" class="btn btn-primary btn-user btn-block">Login</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
