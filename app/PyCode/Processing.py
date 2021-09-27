@@ -20,7 +20,6 @@ def isPerintah(token):
             break
         else:
             result = False
-            indeks = -1
         indeks += 1
     return result, indeks
 
