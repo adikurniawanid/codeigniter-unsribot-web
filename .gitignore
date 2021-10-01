@@ -5,6 +5,7 @@
 #dari Adi
 .env
 /writable
+/app/Pyode/__pycache__
 
 # OS X
 .DS_Store
