@@ -11,6 +11,8 @@ class wordList:
     _daftarKondisi = ["yang", "dimana"]
     _daftarStopword = ["coba", "tolong"]
     _daftarSimbol = "[@_!#$%^&*()<>?/\|}{~:]"
+    _daftarRelasi = querySQL(
+        "SELECT `TABLE_NAME`, `COLUMN_NAME`, `REFERENCED_TABLE_SCHEMA`,`REFERENCED_TABLE_NAME`,`REFERENCED_COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` WHERE`TABLE_SCHEMA`=SCHEMA() AND `REFERENCED_TABLE_NAME` IS NOT NULL")
 
 
 def getDaftarPerintah():
@@ -35,3 +37,11 @@ def getDaftarStopWord():
 
 def getDaftarSimbol():
     return wordList._daftarSimbol
+
+
+def getDaftarRelasi():
+    return wordList._daftarRelasi
+
+
+def getDaftarKolomByView(namaView):
+    return hstack(querySQL(f"SELECT col.column_name FROM information_schema.columns col JOIN information_schema.views vie ON vie.table_schema=col.table_schema AND vie.table_name=col.table_name where col.table_schema not in ('sys', 'information_schema','mysql', 'performance_schema') AND vie.table_schema='simak_simulasi' AND vie.TABLE_NAME = '{namaView}'"))
