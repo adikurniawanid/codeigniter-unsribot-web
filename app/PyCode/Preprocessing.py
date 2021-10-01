@@ -1,5 +1,6 @@
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from re import sub
+from WordList import getDaftarStopWord, getDaftarKolom, getDaftarTable, getDaftarSimbol
 
 
 def simbolToKarakter(simbol):
@@ -16,8 +17,12 @@ def tokenizing(kalimat):
 
 
 def hapusSimbol(token):
-    specialCharacter = "[@_!#$%^&*()<>?/\|}{~:]"
+    specialCharacter = getDaftarSimbol()
     return [w for w in token if w not in specialCharacter]
+
+
+def stopwordFiltering(token):
+    return [w for w in token if w not in getDaftarStopWord()]
 
 
 def stemming(token):
@@ -27,15 +32,18 @@ def stemming(token):
     tokenStem = []
     for w in token:
         if(w.find("'") != False):
-            if(stemmer.stem(w) != ""):
-                tokenStem.append(stemmer.stem(w))
+            if(w not in getDaftarKolom() or w not in getDaftarTable()):
+                if(stemmer.stem(w) != ""):
+                    tokenStem.append(stemmer.stem(w))
+            else:
+                tokenStem.append(w)
         else:
             tokenStem.append(w)
     return tokenStem
 
 
 def pre(kalimatPerintah):
-    result = stemming(hapusSimbol(tokenizing(
-        doubleToSingleTick(simbolToKarakter(kalimatPerintah)))))
+    result = stemming(stopwordFiltering(hapusSimbol(tokenizing(
+        doubleToSingleTick(simbolToKarakter(kalimatPerintah.lower()))))))
 
     return result
