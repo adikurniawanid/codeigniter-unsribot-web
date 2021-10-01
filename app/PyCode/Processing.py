@@ -1,4 +1,6 @@
-from WordList import getDaftarTable, getDaftarPerintah, getDaftarKolom, getDaftarKondisi
+from os import replace
+from WordList import getDaftarTable, getDaftarPerintah, getDaftarKolom, getDaftarKondisi, getDaftarRelasi, getDaftarKolomByView
+from Preprocessing import pre
 
 
 def isPerintah(token):
@@ -6,7 +8,8 @@ def isPerintah(token):
     indeks = 0
     for w in token:
         if w in kalimatPerintah:
-            result = w
+            # result = w
+            result = True
             indeks = indeks
             break
         else:
@@ -15,42 +18,46 @@ def isPerintah(token):
     return result, indeks
 
 
-def indetifikasiTabel(token):
+def identifikasiTabel(token):
     daftarTabel = getDaftarTable()
 
     teridentifikasi = []
     indeksTeridentifikasi = []
+    banyakTabel = 0
 
     indeks = 0
     for w in token:
         if w in daftarTabel:
             teridentifikasi.append(w)
             indeksTeridentifikasi.append(indeks)
+            banyakTabel += 1
             indeks += 1
         else:
             indeks += 1
 
-    return teridentifikasi, indeksTeridentifikasi
+    return teridentifikasi, indeksTeridentifikasi, banyakTabel
 
 
-def indetifikasiKolom(token):
+def identifikasiKolom(token):
     daftarKolom = getDaftarKolom()
 
     teridentifikasi = []
     indeksTeridentifikasi = []
+    banyakKolom = 0
 
     indeks = 0
     for w in token:
         if w in daftarKolom:
             teridentifikasi.append(w)
             indeksTeridentifikasi.append(indeks)
+            banyakKolom += 1
             indeks += 1
         else:
             indeks += 1
-    return teridentifikasi, indeksTeridentifikasi
+    return teridentifikasi, indeksTeridentifikasi, banyakKolom
 
 
-def indetifikasiKondisi(token):
+def identifikasiKondisi(token):
     daftarKondisi = getDaftarKondisi()
 
     teridentifikasi = []
@@ -67,9 +74,10 @@ def indetifikasiKondisi(token):
     return teridentifikasi, indeksTeridentifikasi
 
 
-def indetifikasiOperatorLogika(token):
+def identifikasiOperatorLogika(token):
     teridentifikasi = []
     indeksTeridentifikasi = []
+    banyakOperatorLogika = 0
 
     indeks = 0
     for w in token:
@@ -78,11 +86,23 @@ def indetifikasiOperatorLogika(token):
             # teridentifikasi.append("or")
             indeksTeridentifikasi.append(indeks)
             indeks += 1
+            banyakOperatorLogika += 1
         elif w == "dan":
             teridentifikasi.append(w)
             # teridentifikasi.append("and")
             indeksTeridentifikasi.append(indeks)
             indeks += 1
+            banyakOperatorLogika += 1
         else:
             indeks += 1
-    return teridentifikasi, indeksTeridentifikasi
+    return teridentifikasi, indeksTeridentifikasi, banyakOperatorLogika
+
+
+# def identifikasiRelasi(token):
+#     if(len(token) > 1):
+#         for w in token:
+#             print(w)
+#             daftarKolom = getDaftarKolomByView(w)
+#             print(daftarKolom)
+#     else:
+#         print("woi")
