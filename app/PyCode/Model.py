@@ -6,6 +6,7 @@ try:
         user="root",
         password="",
         database="simak_simulasi"
+        # database="simakv2"
     )
 except mysql.connector.Error as e:
     print("Gagal Mengkoneksikan Basis Data", e)
