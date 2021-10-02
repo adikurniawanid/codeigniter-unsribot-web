@@ -1,5 +1,5 @@
 from os import replace
-from WordList import getDaftarTable, getDaftarPerintah, getDaftarKolom, getDaftarKondisi, getDaftarRelasi, getDaftarKolomByView
+from WordList import getDaftarTable, getDaftarPerintah, getDaftarKolom, getDaftarKondisi
 from Preprocessing import pre
 
 
@@ -62,16 +62,18 @@ def identifikasiKondisi(token):
 
     teridentifikasi = []
     indeksTeridentifikasi = []
+    banyakKondisi = 0
 
     indeks = 0
     for w in token:
         if w in daftarKondisi:
             teridentifikasi.append(w)
             indeksTeridentifikasi.append(indeks)
+            banyakKondisi += 1
             indeks += 1
         else:
             indeks += 1
-    return teridentifikasi, indeksTeridentifikasi
+    return teridentifikasi, indeksTeridentifikasi, banyakKondisi
 
 
 def identifikasiOperatorLogika(token):
@@ -96,13 +98,3 @@ def identifikasiOperatorLogika(token):
         else:
             indeks += 1
     return teridentifikasi, indeksTeridentifikasi, banyakOperatorLogika
-
-
-# def identifikasiRelasi(token):
-#     if(len(token) > 1):
-#         for w in token:
-#             print(w)
-#             daftarKolom = getDaftarKolomByView(w)
-#             print(daftarKolom)
-#     else:
-#         print("woi")
