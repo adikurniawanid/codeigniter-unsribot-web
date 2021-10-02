@@ -32,7 +32,7 @@ def stemming(token):
     tokenStem = []
     for w in token:
         if(w.find("'") != False):
-            if(w not in getDaftarKolom() or w not in getDaftarTable()):
+            if(w not in getDaftarKolom() and w not in getDaftarTable()):
                 if(stemmer.stem(w) != ""):
                     tokenStem.append(stemmer.stem(w))
             else:
@@ -43,7 +43,7 @@ def stemming(token):
 
 
 def pre(kalimatPerintah):
-    result = stemming(stopwordFiltering(hapusSimbol(tokenizing(
+    result = stopwordFiltering(stemming(hapusSimbol(tokenizing(
         doubleToSingleTick(simbolToKarakter(kalimatPerintah.lower()))))))
 
     return result
