@@ -1,4 +1,4 @@
-from Processing import isPerintah, identifikasiTabel, identifikasiKondisi
+from Processing import identifikasiKolom, isPerintah, identifikasiTabel, identifikasiKondisi
 from WordList import getDaftarKolomByView
 
 
@@ -11,14 +11,18 @@ def queryForming(token):
         return("tidak ada perintah SELECT")
 
     # Kolom dan Tabel
+    daftarKolom, indeksKolom, banyakKolom = identifikasiKolom(token)
     daftarTabel, indeksTabel, banyakTabel = identifikasiTabel(token)
     indeks = 0
-    for w in token:
-        for x in daftarTabel:
-            if w in getDaftarKolomByView(x):
-                token[indeks] = f"{x}.{w}"
-                break
-        indeks += 1
+    if banyakKolom == 0:
+        token[1] = "*"
+    else:
+        for w in token:
+            for x in daftarTabel:
+                if w in getDaftarKolomByView(x):
+                    token[indeks] = f"{x}.{w}"
+                    break
+            indeks += 1
 
     # Operator Logika AND OR
     indeks = 0
