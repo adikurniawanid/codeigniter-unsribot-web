@@ -1,6 +1,4 @@
-from os import replace
 from WordList import getDaftarTable, getDaftarPerintah, getDaftarKolom, getDaftarKondisi
-from Preprocessing import pre
 
 
 def isPerintah(token):

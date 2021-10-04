@@ -14,15 +14,12 @@ def queryForming(token):
     daftarKolom, indeksKolom, banyakKolom = identifikasiKolom(token)
     daftarTabel, indeksTabel, banyakTabel = identifikasiTabel(token)
     indeks = 0
-    if banyakKolom == 0:
-        token[1] = "*"
-    else:
-        for w in token:
-            for x in daftarTabel:
-                if w in getDaftarKolomByView(x):
-                    token[indeks] = f"{x}.{w}"
-                    break
-            indeks += 1
+    for w in token:
+        for x in daftarTabel:
+            if w in getDaftarKolomByView(x):
+                token[indeks] = f"{x}.{w}"
+                break
+        indeks += 1
 
     # Operator Logika AND OR
     indeks = 0
@@ -44,4 +41,13 @@ def queryForming(token):
     if banyakKondisi > 0:
         token[indeksKondisi[0]] = "WHERE"
 
-    return(token)
+    # jika kolom tidak ada
+    if banyakKolom == 0:
+        token.insert(1, "*")
+
+    hasilQuery = ""
+    for w in token:
+        hasilQuery += w
+        hasilQuery += " "
+
+    return(hasilQuery)
