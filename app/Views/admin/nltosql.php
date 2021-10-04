@@ -46,9 +46,8 @@ function arrayToTable($table)
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 text-gray-800"><b>[Work-in-Progress]</b></h1>
+    <!-- <h1 class="h3 text-gray-800"><b>[Work-in-Progress]</b></h1> -->
     <h1 class="h3 mb-4 text-gray-800">Natural Language to Structured Query Language</h1>
-
 
     <!-- Validation -->
     <?= view('validation/flashData') ?>
@@ -67,6 +66,12 @@ function arrayToTable($table)
                 <div>
                     <button type="submit" name="buttonProsesNlToSql" class="btn btn-primary">Proses NL to SQL</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
+                    <a href="<?= base_url('Admin/Dataset/NL') ?>" class="btn btn-primary btn-icon-split mb-3" style="float: right;">
+                        <span class="icon text-white-50">
+                            <i class="fa fa-archive"></i>
+                        </span>
+                        <span class="text">Dataset NL</span>
+                    </a>
                 </div>
             </form>
         </div>

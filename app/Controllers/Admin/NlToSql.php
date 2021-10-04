@@ -23,6 +23,19 @@ class NlToSql extends BaseController
 		return view('admin/nltosql', $data);
 	}
 
+	public function nlDataset()
+	{
+		if (!isset($_SESSION['user_id'])) {
+			return redirect()->to(base_url('Auth/Login'));
+		}
+
+		$data = [
+			'judul' => 'Dataset NL',
+			'data_list' => $this->db->query("SELECT nl FROM t_dataset_nl")->getResultArray(),
+		];
+		return view('admin/nlDataset', $data);
+	}
+
 	public function prosesNlToSql()
 	{
 		if (isset($_POST['buttonProsesNlToSql'])) {

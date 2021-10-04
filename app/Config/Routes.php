@@ -62,6 +62,7 @@ $routes->put('/Admin/Mahasiswa/(:any)', 'Admin/Mahasiswa::editMahasiswa/$1');
 
 $routes->post('/Admin/QueryData', 'Admin/QueryData::prosesQuery');
 $routes->post('/Admin/NlToSql', 'Admin/NlToSql::prosesNlToSql');
+$routes->get('/Admin/Dataset/NL', 'Admin/NlToSql::nlDataset');
 
 
 $routes->post('/Auth/Login', 'Auth/Login::login');
