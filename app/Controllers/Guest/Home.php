@@ -18,7 +18,7 @@ class Home extends BaseController
 		}
 
 		$data = [
-			'judul' => 'Home',
+			'judul' => 'Formulir Pengumpulan Natural Language AKADEMIK',
 			'data_list' => $this->db->query("SELECT nl FROM t_dataset_nl")->getResultArray(),
 		];
 
