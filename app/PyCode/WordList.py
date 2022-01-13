@@ -4,6 +4,7 @@ from numpy import hstack
 
 class wordList:
     __databaseName = "simak_simulasi"
+    # __databaseName = "simakv2"
 
     # dari tabel
     # _daftarTabel = hstack(querySQL(
@@ -21,8 +22,10 @@ class wordList:
     _daftarPerintah = ["tampil", "apa", "berapa",
                        "siapa", "cari", "lihat", "temu"]
     _daftarKondisi = ["yang", "dimana", "dengan"]
-    _daftarStopword = ["coba", "tolong", "milik"]
+    _daftarStopword = ["coba", "tolong", "milik", "data"]
     _daftarSimbol = "[@_!#$%^&*()<>?/\|}{~:]"
+    _daftarPenangananNamaTabel = {"mata kuliah": "mata_kuliah",
+                                  "matakuliah": "mata_kuliah"}
 
 
 def getDaftarPerintah():
@@ -51,6 +54,10 @@ def getDaftarSimbol():
 
 def getDaftarRelasi():
     return wordList._daftarRelasi
+
+
+def getDaftarPenangananNamaTabel():
+    return wordList._daftarPenangananNamaTabel
 
 
 def getDaftarKolomByView(namaView):

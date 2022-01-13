@@ -1,6 +1,14 @@
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from re import sub
-from WordList import getDaftarStopWord, getDaftarKolom, getDaftarTable, getDaftarSimbol
+from WordList import getDaftarStopWord, getDaftarKolom, getDaftarTable, getDaftarSimbol, getDaftarPenangananNamaTabel
+import re
+
+
+def penangananNamaTabel(text):
+    daftarPenangananNamaTabel = getDaftarPenangananNamaTabel()
+    for i, j in daftarPenangananNamaTabel.items():
+        text = text.replace(i, j)
+    return text
 
 
 def simbolToKarakter(simbol):
@@ -44,6 +52,6 @@ def stemming(token):
 
 def pre(kalimatPerintah):
     result = stopwordFiltering(stemming(hapusSimbol(tokenizing(
-        doubleToSingleTick(simbolToKarakter(kalimatPerintah.lower()))))))
+        doubleToSingleTick(simbolToKarakter(penangananNamaTabel(kalimatPerintah.lower())))))))
 
     return result

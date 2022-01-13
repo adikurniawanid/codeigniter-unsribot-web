@@ -1,12 +1,16 @@
-from WordList import getDaftarKolomByView
 import sys
 from Preprocessing import doubleToSingleTick, hapusSimbol, simbolToKarakter, stopwordFiltering, tokenizing, stemming, pre
 from Processing import identifikasiKondisi, identifikasiOperatorLogika, isPerintah, identifikasiTabel, identifikasiKolom
 from QueryForming import queryForming
+from Model import querySQL
+from numpy import hstack
+from WordList import getDaftarKolomByView
 
-kalimatPerintah = "Tolong Temukan nama mahasiswa dengan jurusan yang memiliki kode 09021181823168 & fakultas komputer"
+# kalimatPerintah = "Tolong Temukan nama mahasiswa dengan jurusan yang memiliki kode 09021181823168 & fakultas komputer"
+# kalimatPerintah = "temukan Nama dosen pembimbing mahasiswa dengan nim 09021181823003"
+# kalimatPerintah = "Tolong Temukan nama "
 
-# kalimatPerintah = sys.argv[1]
+kalimatPerintah = sys.argv[1]
 
 print(f"""
 kalimatPerintah         : {kalimatPerintah}
@@ -30,4 +34,6 @@ Identifikasi Operator   : {identifikasiOperatorLogika(pre(kalimatPerintah))}
 
 kalimatPerintah = pre(kalimatPerintah)
 
-print(queryForming(kalimatPerintah))
+test = queryForming(kalimatPerintah)
+
+print(test)

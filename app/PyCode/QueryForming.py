@@ -33,7 +33,8 @@ def queryForming(token):
         indeks += 1
 
     # FROM
-    token.insert(indeksTabel[0], "FROM")
+    if banyakTabel > 0:
+        token.insert(indeksTabel[0], "FROM")
 
     # WHERE
     daftarKondisi, indeksKondisi, banyakKondisi = identifikasiKondisi(
@@ -42,7 +43,7 @@ def queryForming(token):
         token[indeksKondisi[0]] = "WHERE"
 
     # jika kolom tidak ada
-    if banyakKolom == 0:
+    if banyakKolom == 0 and banyakTabel > 0:
         token.insert(1, "*")
 
     hasilQuery = ""
