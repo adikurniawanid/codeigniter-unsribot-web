@@ -71,8 +71,8 @@ echo $this->section('content');
                         <div class="form-group">
                             <label>Dosen Pembimbing Akademik</label>
                             <?php $selectedPA = $mahasiswa['dosen_pembimbing_akademik']; ?>
-                            <select class="custom-select" id="pa_id_param" name="pa_id_param">
-                                <option value="null">-</option>
+                            <select class="custom-select" id="pa_id_param" name="pa_id_param" required>
+                                <option value="">Pilih Dosen Pembimbing Akademik</option>
                                 <?php
                                 foreach ($dosen_list as $row) :
                                 ?>

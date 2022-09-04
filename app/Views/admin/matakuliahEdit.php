@@ -44,12 +44,12 @@ echo $this->section('content');
                         </div>
                         <div class="form-group">
                             <label>Jurusan</label>
-                            <?php $selectedJurusan = $mata_kuliah['jurusan_kode']; ?>
+                            <?php $selectedJurusan = $mata_kuliah['jurusan']; ?>
                             <select class="custom-select" id="jurusan_id_param" name="jurusan_id_param" required>
                                 <option value="">Pilih Jurusan</option>
                                 <?php
                                 foreach ($jurusan_list as $row) : ?>
-                                    <option <?= $row['kode'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['kode'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
+                                    <option <?= $row['nama'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['kode'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>

@@ -31,7 +31,7 @@ class NlToSql extends BaseController
 
 		$data = [
 			'judul' => 'Dataset NL',
-			'data_list' => $this->db->query("SELECT nl FROM t_dataset_nl")->getResultArray(),
+			'data_list' => $this->db->query("SELECT * FROM t_dataset_nl")->getResultArray(),
 		];
 		return view('admin/nlDataset', $data);
 	}

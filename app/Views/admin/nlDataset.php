@@ -40,14 +40,9 @@ echo $this->section('content');
                                 <tr>
                                     <th class="col-1">No</th>
                                     <th>Natural Language</th>
+                                    <th>SQL</th>
                                 </tr>
                             </thead>
-                            <tfoot class="text-center">
-                                <tr>
-                                    <th>No</th>
-                                    <th>Natural Language</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 <?php $no = 1;
                                 foreach ($data_list as $key) :
@@ -55,6 +50,7 @@ echo $this->section('content');
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
                                         <td><?= $key['nl']; ?></td>
+                                        <td><?= $key['sql']; ?></td>
                                     </tr>
                                 <?php $no++;
                                 endforeach

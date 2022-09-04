@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label>Program Studi</label>
                         <select class="custom-select" id="program_studi_id_param" name="program_studi_id_param" required>
-                            <option value="1">Pilih Program Studi</option>
+                            <option value="">Pilih Program Studi</option>
                             <option value="1">Reguler</option>
                             <option value="2">Billingual</option>
                         </select>
@@ -43,8 +43,8 @@
                     </div>
                     <div class="form-group">
                         <label>Dosen Pembimbing Akademik</label>
-                        <select class="custom-select" id="pa_id_param" name="pa_id_param">
-                            <option value="null">Pilih Dosen Pembimbing</option>
+                        <select class="custom-select" id="pa_id_param" name="pa_id_param" required>
+                            <option value="">Pilih Dosen Pembimbing</option>
                             <?php
                             foreach ($dosen_list as $row) : ?>
                                 <option value="<?= $row['nip'] ?>"><?= $row['nama']  ?></option>

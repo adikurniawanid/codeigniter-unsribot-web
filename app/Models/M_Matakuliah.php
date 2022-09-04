@@ -22,19 +22,16 @@ class M_Matakuliah extends Model
     public function add_mata_kuliah($kode_mk_param, $nama_mk_param, $semester_param, $sks_param, $jurusan_kode_param)
     {
         return $this->db->query(
-            "call
-            add_mata_kuliah
-            ('$kode_mk_param', '$nama_mk_param', '$semester_param', '$sks_param', '$jurusan_kode_param')
-            "
+            "INSERT INTO t_mata_kuliah (kode, nama, semester, sks, jurusanId)
+            VALUES ('$kode_mk_param', '$nama_mk_param', '$semester_param', '$sks_param', (SELECT id FROM t_jurusan WHERE kode = '$jurusan_kode_param'))"
         );
     }
 
     public function delete_mata_kuliah($kode_mk_param)
     {
         return $this->db->query(
-            "call
-            delete_mata_kuliah
-            ('$kode_mk_param')
+            "DELETE FROM t_mata_kuliah
+            WHERE kode= '$kode_mk_param'
             "
         );
     }
@@ -42,9 +39,8 @@ class M_Matakuliah extends Model
     public function get_detail_edit_mata_kuliah($kode_mk_param)
     {
         return $this->db->query(
-            "call
-            get_detail_edit_mata_kuliah
-            ('$kode_mk_param')
+            "SELECT * FROM mata_kuliah
+        WHERE kode = '$kode_mk_param'
             "
         )->getRowArray();
     }
@@ -52,9 +48,12 @@ class M_Matakuliah extends Model
     public function edit_mata_kuliah($kode_mk_param, $nama_mk_param, $semester_param, $sks_param, $jurusan_kode_param)
     {
         return $this->db->query(
-            "call
-            edit_mata_kuliah
-            ('$kode_mk_param', '$nama_mk_param', '$semester_param', '$sks_param', '$jurusan_kode_param')
+            "UPDATE t_mata_kuliah
+        SET nama = '$nama_mk_param',
+            semester = '$semester_param',
+            sks = '$sks_param',
+            jurusanId = ( SELECT id FROM t_jurusan WHERE kode =  '$jurusan_kode_param')
+    WHERE kode = '$kode_mk_param';
             "
         );
     }
