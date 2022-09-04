@@ -18,31 +18,44 @@ class M_Dosen extends Model
         )->getResultArray();
     }
 
-    public function add_dosen($nip_param, $nama_param)
+    public function add_dosen($nip_param, $nama_param, $jurusan_id_param, $jenis_kelamin_id_param)
     {
         return $this->db->query(
-            "call add_dosen('$nip_param', '$nama_param')"
+            "INSERT INTO t_dosen (nip, nama, jurusanId, jenisKelaminId) VALUES ('$nip_param', '$nama_param', '$jurusan_id_param', '$jenis_kelamin_id_param')"
         );
     }
 
     public function delete_dosen($nip_param)
     {
+        $this->db->query(
+            "UPDATE t_mahasiswa
+    SET dosenPaId =null
+    WHERE dosenPaId = (SELECT id from t_dosen WHERE nip = $nip_param)"
+        );
         return $this->db->query(
-            "call delete_dosen('$nip_param')"
+            "DELETE FROM t_dosen
+    WHERE nip = $nip_param"
         );
     }
 
     public function get_detail_edit_dosen($nip_param)
     {
         return $this->db->query(
-            "call get_detail_edit_dosen('$nip_param')"
+            "SELECT *
+FROM dosen
+WHERE nip = $nip_param"
         )->getRowArray();
     }
 
-    public function edit_dosen($nip_param, $nama_param)
+    public function edit_dosen($nip_param, $nama_param, $jenis_kelamin_id_param, $jurusan_kode_param)
     {
         return $this->db->query(
-            "call edit_dosen('$nip_param', '$nama_param')"
+            "UPDATE t_dosen
+        SET 
+            nama = '$nama_param',
+            jenisKelaminId = '$jenis_kelamin_id_param',
+            jurusanId = '$jurusan_kode_param'
+    WHERE nip = $nip_param"
         );
     }
 }

@@ -4,12 +4,14 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\M_Dosen;
+use App\Models\M_Jurusan;
 
 class Dosen extends BaseController
 {
     public function __construct()
     {
         $this->model = new M_Dosen();
+        $this->modelJurusan = new M_Jurusan();
     }
 
     public function index()
@@ -20,7 +22,8 @@ class Dosen extends BaseController
 
         $data = [
             'judul' => 'Dosen',
-            'dosen_list' => $this->model->get_dosen_list()
+            'dosen_list' => $this->model->get_dosen_list(),
+            'jurusan_list' => $this->modelJurusan->get_jurusan_list()
         ];
 
         return view('admin/dosen', $data);
@@ -28,7 +31,7 @@ class Dosen extends BaseController
 
     public function addDosen()
     {
-        if (isset($_POST['buttonAddDosen'])) {
+        if (isset($_POST['buttonModalAddDosen'])) {
             $val = $this->validate([
                 'nama_param' => [
                     'label' => 'Nama Dosen',
@@ -44,6 +47,20 @@ class Dosen extends BaseController
                         'required' => '{field} tidak boleh kosong.',
                         'is_unique' => '{field} tersebut telah digunakan, silahkan gunakan {field} lain yang belum terdaftar'
                     ]
+                ],
+                'jurusan_id_param' => [
+                    'label' => 'Jurusan',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
+                ],
+                'jenis_kelamin_id_param' => [
+                    'label' => 'Jenis Kelamin',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
                 ]
             ]);
             if (!$val) {
@@ -52,10 +69,12 @@ class Dosen extends BaseController
             } else {
                 $data = [
                     'nama_param' => $this->request->getPost('nama_param'),
-                    'nip_param' => $this->request->getPost('nip_param')
+                    'nip_param' => $this->request->getPost('nip_param'),
+                    'jurusan_id_param' => $this->request->getPost('jurusan_id_param'),
+                    'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param')
                 ];
 
-                $success = $this->model->add_dosen($data['nip_param'], $data['nama_param']);
+                $success = $this->model->add_dosen($data['nip_param'], $data['nama_param'], $data['jurusan_id_param'], $data['jenis_kelamin_id_param']);
                 if ($success) {
                     $message = 'Dosen <b>' . $data['nama_param'] . '</b> berhasil ditambahkan';
                     session()->setFlashData('message', $message);
@@ -82,7 +101,8 @@ class Dosen extends BaseController
     {
         $data = [
             'judul' => 'Edit Dosen',
-            'dosen' => $this->model->get_detail_edit_dosen($nip_param)
+            'dosen' => $this->model->get_detail_edit_dosen($nip_param),
+            'jurusan_list' => $this->modelJurusan->get_jurusan_list()
         ];
 
         echo view('admin/dosenEdit', $data);
@@ -104,6 +124,20 @@ class Dosen extends BaseController
                         'required' => '{field} tidak boleh kosong.',
                         'max_length' => '{field} tidak boleh lebih dari 18 karakter.',
                     ]
+                ],
+                'jurusan_id_param' => [
+                    'label' => 'Jurusan',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
+                ],
+                'jenis_kelamin_id_param' => [
+                    'label' => 'Jenis Kelamin',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
                 ]
             ]);
 
@@ -113,9 +147,10 @@ class Dosen extends BaseController
             } else {
                 $data = [
                     'nip_param' => $this->request->getPost('nip_param'),
-                    'nama_param' => $this->request->getPost('nama_param'),
+                    'nama_param' => $this->request->getPost('nama_param'), 'jurusan_id_param' => $this->request->getPost('jurusan_id_param'),
+                    'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
                 ];
-                $success = $this->model->edit_dosen($data['nip_param'], $data['nama_param']);
+                $success = $this->model->edit_dosen($data['nip_param'], $data['nama_param'], $data['jenis_kelamin_id_param'], $data['jurusan_id_param']);
 
                 if ($success) {
                     $message = 'Dosen <b>' . $data['nama_param'] . '</b> berhasil diedit';
