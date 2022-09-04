@@ -34,13 +34,14 @@ echo $this->section('content');
                                     <th>No</th>
                                     <th>NIM</th>
                                     <th>Nama</th>
-                                    <th>Jurusan</th>
-                                    <th>Fakultas</th>
                                     <th>Angkatan</th>
                                     <th>Suliet</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Dosen PA</th>
                                     <th>IPK</th>
+                                    <th>Jurusan</th>
+                                    <th>Program Studi</th>
+                                    <th>Fakultas</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -52,13 +53,14 @@ echo $this->section('content');
                                         <td class="text-center"><?= $no ?></td>
                                         <td><?= $row['nim']; ?></td>
                                         <td><?= $row['nama']; ?></td>
-                                        <td><?= $row['jurusan']; ?></td>
-                                        <td><?= $row['fakultas']; ?></td>
                                         <td><?= $row['angkatan']; ?></td>
                                         <td><?= $row['suliet']; ?></td>
                                         <td><?= $row['jenis_kelamin']; ?></td>
                                         <td><?= $row['dosen_pembimbing_akademik']; ?></td>
                                         <td><?= $row['ipk']; ?></td>
+                                        <td><?= $row['jurusan']; ?></td>
+                                        <td><?= $row['program_studi']; ?></td>
+                                        <td><?= $row['fakultas']; ?></td>
                                         <td class="text-center">
                                             <form action="/Admin/Mahasiswa/<?= $row['nim']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>

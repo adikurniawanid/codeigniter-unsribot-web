@@ -40,13 +40,20 @@ echo $this->section('content');
                         </div>
                         <div class="form-group">
                             <label>Jurusan</label>
-                            <?php $selectedJurusan = $mahasiswa['jurusanId']; ?>
+                            <?php $selectedJurusan = $mahasiswa['jurusan']; ?>
                             <select class="custom-select" id="jurusan_id_param" name="jurusan_id_param" required>
-                                <option value="">Pilih Jurusan</option>
                                 <?php
                                 foreach ($jurusan_list as $row) : ?>
-                                    <option <?= $row['kode'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['kode'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
+                                    <option <?= $row['nama'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['id'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
                                 <?php endforeach ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Program Studi</label>
+                            <?php $selectedJurusan = $mahasiswa['program_studi']; ?>
+                            <select class="custom-select" id="program_studi_id_param" name="program_studi_id_param" required>
+                                <option <?= $mahasiswa['program_studi'] == "Reguler" ? "selected='selected'" : ""; ?> value="1">Reguler</option>
+                                <option <?= $mahasiswa['program_studi'] == "Billingual" ? "selected='selected'" : ""; ?> value="2">Billingual</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -58,13 +65,18 @@ echo $this->section('content');
                             <input value="<?= $mahasiswa['ipk']; ?>" maxlength="4" autocomplete="off" class="form-control" required type="number" step="0.01" name="ipk_param" placeholder="Masukkan IPK..." />
                         </div>
                         <div class="form-group">
+                            <label>SULIET</label>
+                            <input value="<?= $mahasiswa['suliet']; ?>" maxlength="600" autocomplete="off" class="form-control" required type="number" step="1" name="suliet_param" placeholder="Masukkan Nilai SULIET..." />
+                        </div>
+                        <div class="form-group">
                             <label>Dosen Pembimbing Akademik</label>
-                            <?php $selectedPA = $mahasiswa['dosenPaId']; ?>
+                            <?php $selectedPA = $mahasiswa['dosen_pembimbing_akademik']; ?>
                             <select class="custom-select" id="pa_id_param" name="pa_id_param">
                                 <option value="null">-</option>
                                 <?php
-                                foreach ($dosen_list as $row) : ?>
-                                    <option <?= $row['nip'] == $selectedPA ? "selected='selected'" : ""; ?> value="<?= $row['nip'] ?>"><?= $row['nama']  ?></option>
+                                foreach ($dosen_list as $row) :
+                                ?>
+                                    <option <?= $row['nama'] == $selectedPA ? "selected='selected'" : ""; ?> value="<?= $row['nip'] ?>"><?= $row['nama']  ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -72,13 +84,13 @@ echo $this->section('content');
                         <br>
                         <div class="form-check form-check-inline">
                             <div class="row">
-                                <?php $checkedJenisKelamin = $mahasiswa['jenisKelaminId']; ?>
+                                <?php $checkedJenisKelamin = $mahasiswa['jenis_kelamin']; ?>
                                 <div class="col" checked="<?= $checkedJenisKelamin ?>">
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin_id_param" id="kunci_a" value="1" required <?= ($checkedJenisKelamin == '1') ?  "checked" : "";  ?>>
+                                    <input class="form-check-input" type="radio" name="jenis_kelamin_id_param" id="kunci_a" value="1" required <?= ($checkedJenisKelamin == 'Pria') ?  "checked" : "";  ?>>
                                     <label class="form-check-label mr-4" for="kunci_a">
                                         Pria
                                     </label>
-                                    <input class="form-check-input" type="radio" name="jenis_kelamin_id_param" id="kunci_b" value="2" <?= ($checkedJenisKelamin == '2') ?  "checked" : "";  ?>>
+                                    <input class="form-check-input" type="radio" name="jenis_kelamin_id_param" id="kunci_b" value="2" <?= ($checkedJenisKelamin == 'Wanita') ?  "checked" : "";  ?>>
                                     <label class="form-check-label mr-4" for="kunci_b">
                                         Wanita
                                     </label>

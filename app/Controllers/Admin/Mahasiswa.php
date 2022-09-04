@@ -78,6 +78,12 @@ class Mahasiswa extends BaseController
                     'errors' => [
                         'required' => '{field} tidak boleh kosong.',
                     ]
+                ], 'program_studi_id_param' => [
+                    'label' => 'Program Studi',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
                 ]
             ]);
             if (!$val) {
@@ -92,9 +98,12 @@ class Mahasiswa extends BaseController
                     'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
                     'pa_id_param' => $this->request->getPost('pa_id_param'),
                     'ipk_param' => $this->request->getPost('ipk_param'),
+                    'suliet_param' => $this->request->getPost('suliet_param'),
+                    'program_studi_id_param' => $this->request->getPost('program_studi_id_param'),
                 ];
 
-                $success = $this->model->add_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param'], $data['ipk_param']);
+                $success = $this->model->add_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param'], $data['ipk_param'], $data['suliet_param'], $data['program_studi_id_param']);
+
                 if ($success) {
                     $message = 'Mahasiswa <b>' . $data['nama_param'] . '</b> berhasil ditambahkan';
                     session()->setFlashData('message', $message);
@@ -171,6 +180,18 @@ class Mahasiswa extends BaseController
                     'errors' => [
                         'required' => '{field} tidak boleh kosong.',
                     ]
+                ], 'suliet_param' => [
+                    'label' => 'SULIET',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
+                ], 'program_studi_id_param' => [
+                    'label' => 'Program Studi',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
                 ]
             ]);
 
@@ -186,9 +207,11 @@ class Mahasiswa extends BaseController
                     'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
                     'pa_id_param' => $this->request->getPost('pa_id_param'),
                     'ipk_param' => $this->request->getPost('ipk_param'),
+                    'suliet_param' => $this->request->getPost('suliet_param'),
+                    'program_studi_id_param' => $this->request->getPost('program_studi_id_param'),
                 ];
 
-                $success = $this->model->edit_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param'], $data['ipk_param']);
+                $success = $this->model->edit_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param'], $data['ipk_param'], $data['suliet_param'], $data['program_studi_id_param']);
 
                 if ($success) {
                     $message = 'Mahasiswa <b>' . $data['nama_param'] . '</b> berhasil diedit';

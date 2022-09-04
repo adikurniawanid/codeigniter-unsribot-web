@@ -25,34 +25,29 @@ class M_Mahasiswa extends Model
         $angkatan_param,
         $jenis_kelamin_id_param,
         $dosen_pa_nip_param,
-        $ipk_param
+        $ipk_param,
+        $suliet_param,
+        $program_studi_id_param
     ) {
         return $this->db->query(
-            "call add_mahasiswa('$nim_param', 
-            '$nama_param', 
-            '$jurusan_kode_param', 
-            '$angkatan_param', 
-            '$jenis_kelamin_id_param',
-            '$dosen_pa_nip_param',
-            '$ipk_param'
-            )"
+            "
+INSERT INTO t_mahasiswa (nim, nama,  angkatan, suliet, ipk,jurusanId, jenisKelaminId, dosenPaId, programStudiId)
+        VALUES ('$nim_param', '$nama_param', '$angkatan_param','$suliet_param', '$ipk_param','$jurusan_kode_param', '$jenis_kelamin_id_param', (SELECT id FROM t_dosen WHERE nip = $dosen_pa_nip_param),'$program_studi_id_param' )"
         );
     }
 
     public function delete_mahasiswa($nim_param)
     {
         return $this->db->query(
-            "call delete_mahasiswa('$nim_param')"
+            "DELETE FROM t_mahasiswa
+    WHERE nim = '$nim_param'"
         );
     }
 
     public function get_detail_edit_mahasiswa($nim_param)
     {
         return $this->db->query(
-            "SELECT m.*, djk.* 
-        FROM t_mahasiswa m
-    INNER JOIN t_detail_jenis_kelamin djk ON djk.id = m.jenisKelaminId
-            WHERE m.nim = ('$nim_param')"
+            "SELECT * FROM mahasiswa WHERE nim = '$nim_param'"
         )->getRowArray();
     }
 
@@ -63,31 +58,22 @@ class M_Mahasiswa extends Model
         $angkatan_param,
         $jenis_kelamin_id_param,
         $dosen_pa_nip_param,
-        $ipk_param
+        $ipk_param,
+        $suliet_param,
+        $program_studi_id_param
     ) {
         return $this->db->query(
-            "
-            UPDATE t_mahasiswa
-    SET nama = ('$nama_param'),
-        jurusanId = ('$jurusan_kode_param'), 
-        angkatan = ('$angkatan_param'), 
-        jenisKelaminId = ('$jenis_kelamin_id_param'),
-        ipk = ('$ipk_param')
-        WHERE nim = ('$nim_param'); 
-    
-    CASE 
-        WHEN ($dosen_pa_nip_param) LIKE 'null'
-        THEN
-        UPDATE t_mahasiswa
-            SET dosenPaId = null        
-        WHERE nim = ('$nim_param'); 
 
-        ELSE
-        UPDATE t_mahasiswa
-            SET dosenPaId = ($dosen_pa_nip_param)
-        WHERE nim = ('$nim_param'); 
-        END CASE;
-            "
+            "UPDATE t_mahasiswa
+    SET nama = '$nama_param',
+    jurusanId = '$jurusan_kode_param',
+    angkatan = '$angkatan_param',
+    jenisKelaminId = '$jenis_kelamin_id_param',
+    ipk = '$ipk_param',
+    suliet = '$suliet_param',
+    dosenPaId = (SELECT id FROM t_dosen WHERE nip = '$dosen_pa_nip_param'),
+    programStudiId = '$program_studi_id_param'
+        WHERE nim = '$nim_param'; "
         );
     }
 }

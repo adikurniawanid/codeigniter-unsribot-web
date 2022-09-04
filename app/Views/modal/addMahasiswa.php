@@ -23,9 +23,18 @@
                         <select class="custom-select" id="jurusan_id_param" name="jurusan_id_param" required>
                             <option value="">Pilih Jurusan</option>
                             <?php
-                            foreach ($jurusan_list as $row) : ?>
-                                <option value="<?= $row['kode'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
+                            foreach ($jurusan_list as $row) :
+                            ?>
+                                <option value="<?= $row['id'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
                             <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Program Studi</label>
+                        <select class="custom-select" id="program_studi_id_param" name="program_studi_id_param" required>
+                            <option value="1">Pilih Program Studi</option>
+                            <option value="1">Reguler</option>
+                            <option value="2">Billingual</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -45,6 +54,10 @@
                     <div class="form-group">
                         <label>IPK</label>
                         <input maxlength="4" autocomplete="off" class="form-control" required type="number" step="0.01" name="ipk_param" placeholder="Masukkan IPK..." />
+                    </div>
+                    <div class="form-group">
+                        <label>SULIET</label>
+                        <input maxlength="600" autocomplete="off" class="form-control" required type="number" step="1" name="suliet_param" placeholder="Masukkan SULIET..." />
                     </div>
                     <label>Jenis Kelamin</label>
                     <br>

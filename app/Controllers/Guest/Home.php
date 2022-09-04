@@ -49,7 +49,7 @@ class Home extends BaseController
 				$nl_param = $data['nl_param'];
 				$nama_param = session()->get('nama');
 
-				$success = $this->db->query("INSERT INTO t_dataset_nl (nl,guest_name) VALUES ('$nl_param', '$nama_param')");
+				$success = $this->db->query("INSERT INTO t_dataset_nl (nl,guestName) VALUES ('$nl_param', '$nama_param')");
 
 				if ($success) {
 					$message = 'Data berhasil ditambahkan';

@@ -55,12 +55,11 @@ class NlToSql extends BaseController
 			} else {
 				$data = [
 					'judul' => 'NL2SQL',
-					'resultQuery' => $this->db->query('SELECT * FROM mahasiswa')->getResultArray(),
+					'resultQuery' => $this->db->query('SELECT * FROM mahasiswa WHERE mahasiswa.dosen_pembimbing_akademik LIKE "%rizky%" AND mahasiswa.program_studi LIKE "%reguler%" AND mahasiswa.ipk > "3.0" AND mahasiswa.nama = "computer vision" OR mahasiswa.jurusan = "teknik informatika"')->getResultArray(),
 					'text' => $this->request->getPost('input_param')
 				];
 
 				return view('admin/nltosql', $data);
-				// return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();
 			}
 		} else {
 			return redirect()->to($_SERVER['HTTP_REFERER'])->withInput();

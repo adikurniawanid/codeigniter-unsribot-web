@@ -14,7 +14,7 @@ class M_Jurusan extends Model
     public function get_jurusan_list()
     {
         return $this->db->query(
-            "SELECT j.kode, j.nama, f.nama as fakultas  FROM t_jurusan j INNER JOIN t_fakultas f on j.fakultasId = f.id"
+            "SELECT j.id, j.kode, j.nama, f.nama as fakultas  FROM t_jurusan j INNER JOIN t_fakultas f on j.fakultasId = f.id"
         )->getResultArray();
     }
 
