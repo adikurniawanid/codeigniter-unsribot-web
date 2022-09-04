@@ -31,20 +31,15 @@ echo $this->section('content');
                         <table class="table table-bordered table-hover" id="toDataTable" width="100%" cellspacing="0">
                             <thead class="text-center">
                                 <tr>
-                                    <th class="col-1">No</th>
-                                    <th class="col-2">NIP</th>
-                                    <th>Nama Dosen</th>
-                                    <th class="col-2">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tfoot class="text-center">
-                                <tr>
                                     <th>No</th>
                                     <th>NIP</th>
                                     <th>Nama Dosen</th>
+                                    <th>Jurusan</th>
+                                    <th>Fakultas</th>
+                                    <th>Jenis Kelamin</th>
                                     <th>Aksi</th>
                                 </tr>
-                            </tfoot>
+                            </thead>
                             <tbody class="text-center">
                                 <?php
                                 $no = 1;
@@ -54,6 +49,9 @@ echo $this->section('content');
                                         <td class="text-center"><?= $no; ?></td>
                                         <td><?= $key['nip']; ?></td>
                                         <td><?= $key['nama']; ?></td>
+                                        <td><?= $key['jurusan']; ?></td>
+                                        <td><?= $key['fakultas']; ?></td>
+                                        <td><?= $key['jenis_kelamin']; ?></td>
                                         <td class="text-center">
                                             <form action="/Admin/Dosen/<?= $key['nip']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>

@@ -49,7 +49,7 @@ echo $this->section('content');
                                 <option value="">Pilih Jurusan</option>
                                 <?php
                                 foreach ($jurusan_list as $row) : ?>
-                                    <option <?= $row['kode'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['kode'] ?>"><?= $row['jurusan'] . " - " . $row['fakultas'] ?></option>
+                                    <option <?= $row['kode'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['kode'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>

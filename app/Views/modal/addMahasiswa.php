@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Mahasiswa') ?>">
+                <form method="POST" enctype="multipart/form-data" action="<?= base_url('data/mahasiswa') ?>">
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label>NIM</label>
@@ -24,7 +24,7 @@
                             <option value="">Pilih Jurusan</option>
                             <?php
                             foreach ($jurusan_list as $row) : ?>
-                                <option value="<?= $row['kode'] ?>"><?= $row['jurusan'] . " - " . $row['fakultas'] ?></option>
+                                <option value="<?= $row['kode'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
@@ -42,6 +42,10 @@
                             <?php endforeach ?>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>IPK</label>
+                        <input maxlength="4" autocomplete="off" class="form-control" required type="number" step="0.01" name="ipk_param" placeholder="Masukkan IPK..." />
+                    </div>
                     <label>Jenis Kelamin</label>
                     <br>
                     <div class="form-check form-check-inline">
@@ -58,6 +62,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="submit" name="buttonAddMahasiswa" class="btn btn-primary">Simpan</button>

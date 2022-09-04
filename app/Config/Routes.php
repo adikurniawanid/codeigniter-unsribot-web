@@ -32,12 +32,25 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/Admin/Fakultas', 'Admin/Fakultas::index');
-$routes->get('/Admin/Fakultas/(:any)', 'Admin/Fakultas::index');
-$routes->post('/Admin/Fakultas', 'Admin/Fakultas::addFakultas');
+$routes->get('/nl2sql', 'Admin/NlToSql::index');
+$routes->get('/query-database', 'Admin/QueryData::index');
+$routes->get('/data/mahasiswa', 'Admin/Mahasiswa::index');
+$routes->post('/data/mahasiswa', 'Admin/Mahasiswa::addMahasiswa');
 
-$routes->get('/Admin/Jurusan', 'Admin/Jurusan::index');
-$routes->get('/Admin/Jurusan/(:any)', 'Admin/Jurusan::index');
+$routes->get('/data/dosen', 'Admin/Dosen::index');
+$routes->get('/data/dosen/(:any)', 'Admin/Dosen::index');
+$routes->get('/data/mata-kuliah', 'Admin/Matakuliah::index');
+
+$routes->get('/data/jurusan', 'Admin/Jurusan::index');
+$routes->get('/data/jurusan/(:any)', 'Admin/Jurusan::index');
+
+$routes->get('/data/fakultas', 'Admin/Fakultas::index');
+$routes->post('/data/fakultas', 'Admin/Fakultas::addFakultas');
+
+$routes->get('/data/fakultas/(:any)', 'Admin/Fakultas::index');
+$routes->get('/data/natural-language', 'Admin/NlToSql::nlDataset');
+
+
 $routes->post('/Admin/Jurusan', 'Admin/Jurusan::addJurusan');
 $routes->delete('/Admin/Jurusan/(:any)', 'Admin/Jurusan::deleteJurusan/$1');
 $routes->put('/Admin/Jurusan/(:any)', 'Admin/Jurusan::editJurusan/$1');
@@ -48,21 +61,17 @@ $routes->post('/Admin/Matakuliah', 'Admin/Matakuliah::addMatakuliah');
 $routes->delete('/Admin/Matakuliah/(:any)', 'Admin/Matakuliah::deleteMatakuliah/$1');
 $routes->put('/Admin/Matakuliah/(:any)', 'Admin/Matakuliah::editMatakuliah/$1');
 
-$routes->get('/Admin/Dosen', 'Admin/Dosen::index');
-$routes->get('/Admin/Dosen/(:any)', 'Admin/Dosen::index');
 $routes->post('/Admin/Dosen', 'Admin/Dosen::addDosen');
 $routes->delete('/Admin/Dosen/(:any)', 'Admin/Dosen::deleteDosen/$1');
 $routes->put('/Admin/Dosen/(:any)', 'Admin/Dosen::editDosen/$1');
 
 $routes->get('/Admin/Mahasiswa', 'Admin/Mahasiswa::index');
 $routes->get('/Admin/Mahasiswa/(:any)', 'Admin/Mahasiswa::index');
-$routes->post('/Admin/Mahasiswa', 'Admin/Mahasiswa::addMahasiswa');
 $routes->delete('/Admin/Mahasiswa/(:any)', 'Admin/Mahasiswa::deleteMahasiswa/$1');
 $routes->put('/Admin/Mahasiswa/(:any)', 'Admin/Mahasiswa::editMahasiswa/$1');
 
 $routes->post('/Admin/QueryData', 'Admin/QueryData::prosesQuery');
 $routes->post('/Admin/NlToSql', 'Admin/NlToSql::prosesNlToSql');
-$routes->get('/Admin/Dataset/NL', 'Admin/NlToSql::nlDataset');
 
 
 $routes->post('/Auth/Login', 'Auth/Login::login');

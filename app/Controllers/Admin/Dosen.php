@@ -120,9 +120,9 @@ class Dosen extends BaseController
                 if ($success) {
                     $message = 'Dosen <b>' . $data['nama_param'] . '</b> berhasil diedit';
                     session()->setFlashData('message', $message);
-                    return redirect()->to(base_url('Admin/Dosen'));
+                    return redirect()->to(base_url('data/dosen'));
                 } else {
-                    return redirect()->to(base_url('Admin/Dosen'));
+                    return redirect()->to(base_url('data/dosen'));
                 }
             }
         }

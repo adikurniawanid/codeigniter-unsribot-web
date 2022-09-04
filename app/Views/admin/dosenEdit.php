@@ -13,7 +13,7 @@ echo $this->section('content');
 
     <div class="card border-left-primary">
         <div class="card-body">
-            <a href="<?= base_url('Admin/Dosen'); ?>" class="btn btn-primary btn-icon-split mb-3">
+            <a href="<?= base_url('admin/dosen'); ?>" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class=" fa fa-arrow-left"></i>
                 </span>

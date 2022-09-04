@@ -31,30 +31,19 @@ echo $this->section('content');
                         <table class="table table-bordered table-hover" id="toDataTable" width="100%" cellspacing="0">
                             <thead class="text-center">
                                 <tr>
-                                    <th class="col-1">No</th>
-                                    <th class="col-2">NIM</th>
-                                    <th class="col-2">Nama</th>
-                                    <th class="col-1">Jurusan</th>
-                                    <th class="col-1">Fakultas</th>
-                                    <th class="col-1">Jenis Kelamin</th>
-                                    <th class="col-1">Angkatan</th>
-                                    <th class="col-2">Dosen PA</th>
-                                    <th class="col-2">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tfoot class="text-center">
-                                <tr>
                                     <th>No</th>
                                     <th>NIM</th>
-                                    <th>Nama Mahasiswa</th>
+                                    <th>Nama</th>
                                     <th>Jurusan</th>
                                     <th>Fakultas</th>
-                                    <th>Jenis Kelamin</th>
                                     <th>Angkatan</th>
+                                    <th>Suliet</th>
+                                    <th>Jenis Kelamin</th>
                                     <th>Dosen PA</th>
+                                    <th>IPK</th>
                                     <th>Aksi</th>
                                 </tr>
-                            </tfoot>
+                            </thead>
                             <tbody class="text-center">
                                 <?php
                                 $no = 1;
@@ -65,9 +54,11 @@ echo $this->section('content');
                                         <td><?= $row['nama']; ?></td>
                                         <td><?= $row['jurusan']; ?></td>
                                         <td><?= $row['fakultas']; ?></td>
-                                        <td><?= $row['jenis_kelamin']; ?></td>
                                         <td><?= $row['angkatan']; ?></td>
-                                        <td><?= $row['nama_dosen_pa']; ?></td>
+                                        <td><?= $row['suliet']; ?></td>
+                                        <td><?= $row['jenis_kelamin']; ?></td>
+                                        <td><?= $row['dosen_pembimbing_akademik']; ?></td>
+                                        <td><?= $row['ipk']; ?></td>
                                         <td class="text-center">
                                             <form action="/Admin/Mahasiswa/<?= $row['nim']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>

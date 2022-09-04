@@ -71,6 +71,13 @@ class Mahasiswa extends BaseController
                     'errors' => [
                         'required' => '{field} tidak boleh kosong.',
                     ]
+                ],
+                'ipk_param' => [
+                    'label' => 'IPK',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
                 ]
             ]);
             if (!$val) {
@@ -84,9 +91,10 @@ class Mahasiswa extends BaseController
                     'tahun_angkatan_param' => $this->request->getPost('tahun_angkatan_param'),
                     'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
                     'pa_id_param' => $this->request->getPost('pa_id_param'),
+                    'ipk_param' => $this->request->getPost('ipk_param'),
                 ];
 
-                $success = $this->model->add_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param']);
+                $success = $this->model->add_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param'], $data['ipk_param']);
                 if ($success) {
                     $message = 'Mahasiswa <b>' . $data['nama_param'] . '</b> berhasil ditambahkan';
                     session()->setFlashData('message', $message);
@@ -157,6 +165,12 @@ class Mahasiswa extends BaseController
                     'errors' => [
                         'required' => '{field} tidak boleh kosong.',
                     ]
+                ], 'ipk_param' => [
+                    'label' => 'IPK',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong.',
+                    ]
                 ]
             ]);
 
@@ -171,16 +185,17 @@ class Mahasiswa extends BaseController
                     'tahun_angkatan_param' => $this->request->getPost('tahun_angkatan_param'),
                     'jenis_kelamin_id_param' => $this->request->getPost('jenis_kelamin_id_param'),
                     'pa_id_param' => $this->request->getPost('pa_id_param'),
+                    'ipk_param' => $this->request->getPost('ipk_param'),
                 ];
 
-                $success = $this->model->edit_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param']);
+                $success = $this->model->edit_mahasiswa($data['nim_param'], $data['nama_param'], $data['jurusan_id_param'], $data['tahun_angkatan_param'], $data['jenis_kelamin_id_param'], $data['pa_id_param'], $data['ipk_param']);
 
                 if ($success) {
                     $message = 'Mahasiswa <b>' . $data['nama_param'] . '</b> berhasil diedit';
                     session()->setFlashData('message', $message);
-                    return redirect()->to(base_url('Admin/Mahasiswa'));
+                    return redirect()->to(base_url('data/mahasiswa'));
                 } else {
-                    return redirect()->to(base_url('Admin/Mahasiswa'));
+                    return redirect()->to(base_url('data/mahasiswa'));
                 }
             }
         }

@@ -37,20 +37,10 @@ echo $this->section('content');
                                     <th class="col-1">Semester</th>
                                     <th class="col-1">SKS</th>
                                     <th>Jurusan</thclass=>
+                                    <th>Fakultas</thclass=>
                                     <th class="col-2">Aksi</th>
                                 </tr>
                             </thead>
-                            <tfoot class="text-center">
-                                <tr>
-                                    <th>No</th>
-                                    <th>Kode MK</th>
-                                    <th>Nama MK</th>
-                                    <th>Semester</th>
-                                    <th>SKS</th>
-                                    <th>Jurusan</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 <?php
                                 $no = 1;
@@ -59,10 +49,11 @@ echo $this->section('content');
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key['kode']; ?></td>
-                                        <td><?= $key['mata_kuliah']; ?></td>
+                                        <td><?= $key['nama']; ?></td>
                                         <td class="text-center"><?= $key['semester']; ?></td>
                                         <td class="text-center"><?= $key['sks']; ?></td>
                                         <td class="text-center"><?= $key['jurusan'] ?></td>
+                                        <td class="text-center"><?= $key['fakultas'] ?></td>
                                         <td class="text-center">
                                             <form action="/Admin/Matakuliah/<?= $key['kode']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>

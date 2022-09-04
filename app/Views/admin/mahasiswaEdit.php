@@ -14,7 +14,7 @@ echo $this->section('content');
 
     <div class="card border-left-primary">
         <div class="card-body">
-            <a href="<?= base_url('Admin/Mahasiswa'); ?>" class="btn btn-primary btn-icon-split mb-3">
+            <a href="<?= base_url('data/mahasiswa'); ?>" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class=" fa fa-arrow-left"></i>
                 </span>
@@ -40,12 +40,12 @@ echo $this->section('content');
                         </div>
                         <div class="form-group">
                             <label>Jurusan</label>
-                            <?php $selectedJurusan = $mahasiswa['jurusan_kode']; ?>
+                            <?php $selectedJurusan = $mahasiswa['jurusanId']; ?>
                             <select class="custom-select" id="jurusan_id_param" name="jurusan_id_param" required>
                                 <option value="">Pilih Jurusan</option>
                                 <?php
                                 foreach ($jurusan_list as $row) : ?>
-                                    <option <?= $row['kode'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['kode'] ?>"><?= $row['jurusan'] . " - " . $row['fakultas'] ?></option>
+                                    <option <?= $row['kode'] == $selectedJurusan ? "selected='selected'" : ""; ?> value="<?= $row['kode'] ?>"><?= $row['nama'] . " - " . $row['fakultas'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -54,8 +54,12 @@ echo $this->section('content');
                             <input value="<?= $mahasiswa['angkatan']; ?>" maxlength="4" autocomplete="off" class="form-control" required type="year" name="tahun_angkatan_param" placeholder="Masukkan Tahun Angkatan..." />
                         </div>
                         <div class="form-group">
+                            <label>IPK</label>
+                            <input value="<?= $mahasiswa['ipk']; ?>" maxlength="4" autocomplete="off" class="form-control" required type="number" step="0.01" name="ipk_param" placeholder="Masukkan IPK..." />
+                        </div>
+                        <div class="form-group">
                             <label>Dosen Pembimbing Akademik</label>
-                            <?php $selectedPA = $mahasiswa['dosen_pa_nip']; ?>
+                            <?php $selectedPA = $mahasiswa['dosenPaId']; ?>
                             <select class="custom-select" id="pa_id_param" name="pa_id_param">
                                 <option value="null">-</option>
                                 <?php
@@ -68,7 +72,7 @@ echo $this->section('content');
                         <br>
                         <div class="form-check form-check-inline">
                             <div class="row">
-                                <?php $checkedJenisKelamin = $mahasiswa['jenis_kelamin_id']; ?>
+                                <?php $checkedJenisKelamin = $mahasiswa['jenisKelaminId']; ?>
                                 <div class="col" checked="<?= $checkedJenisKelamin ?>">
                                     <input class="form-check-input" type="radio" name="jenis_kelamin_id_param" id="kunci_a" value="1" required <?= ($checkedJenisKelamin == '1') ?  "checked" : "";  ?>>
                                     <label class="form-check-label mr-4" for="kunci_a">
@@ -82,7 +86,7 @@ echo $this->section('content');
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <a href="<?= base_url('data/mahasiswa'); ?>" type="button" class="btn btn-secondary" data-dismiss="modal">Batal</a>
                             <button type="submit" name="buttonEditMahasiswa" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>

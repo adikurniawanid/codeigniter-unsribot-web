@@ -49,7 +49,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('guest/home') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Beranda</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -58,7 +58,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('guest/restrict') ?>">
                     <i class="fas fa-comments fa-cog"></i>
-                    <span>NL to SQL</span>
+                    <span>NL2SQL</span>
                 </a>
             </li>
 
@@ -78,7 +78,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-server fa-cog"></i>
-                    <span>Bank Data</span>
+                    <span>Data</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">

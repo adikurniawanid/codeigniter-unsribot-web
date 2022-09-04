@@ -14,7 +14,7 @@ class M_Dosen extends Model
     public function get_dosen_list()
     {
         return $this->db->query(
-            "SELECT nip, nama FROM dosen"
+            "SELECT * FROM dosen"
         )->getResultArray();
     }
 

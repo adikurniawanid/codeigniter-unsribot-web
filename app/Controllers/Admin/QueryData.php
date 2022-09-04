@@ -19,7 +19,7 @@ class QueryData extends BaseController
 		}
 
 		$data = [
-			'judul' => 'Query Select Data',
+			'judul' => 'Query Database',
 		];
 
 		return view('admin/queryData', $data);
@@ -43,7 +43,7 @@ class QueryData extends BaseController
 				return redirect()->to($_SERVER['HTTP_REFERER']);
 			} else {
 				$data = [
-					'judul' => 'Query Select Data',
+					'judul' => 'Query Database',
 					'result' => $this->request->getPost('sql_param'),
 				];
 
@@ -52,7 +52,7 @@ class QueryData extends BaseController
 					try {
 						$resultQuery = $this->db->query($data['result'])->getResultArray();
 						$data = [
-							'judul' => 'Query Select Data',
+							'judul' => 'Query Database',
 							'result' => $this->request->getPost('sql_param'),
 							'resultQuery' => $resultQuery,
 						];

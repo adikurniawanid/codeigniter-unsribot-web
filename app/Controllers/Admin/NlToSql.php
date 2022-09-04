@@ -18,7 +18,7 @@ class NlToSql extends BaseController
 		}
 
 		$data = [
-			'judul' => 'NL to SQL',
+			'judul' => 'NL2SQL',
 		];
 		return view('admin/nltosql', $data);
 	}
@@ -54,7 +54,7 @@ class NlToSql extends BaseController
 				return redirect()->to($_SERVER['HTTP_REFERER']);
 			} else {
 				$data = [
-					'judul' => 'NL to SQL',
+					'judul' => 'NL2SQL',
 					'resultQuery' => $this->db->query('SELECT * FROM mahasiswa')->getResultArray(),
 					'text' => $this->request->getPost('input_param')
 				];

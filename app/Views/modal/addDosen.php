@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Dosen') ?>">
+                <form method="POST" enctype="multipart/form-data" action="<?= base_url('admin/dosen') ?>">
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label>NIP</label>

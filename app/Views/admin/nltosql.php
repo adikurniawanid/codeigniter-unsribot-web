@@ -64,9 +64,9 @@ function arrayToTable($table)
                     <textarea autocomplete="off" class="form-control" type="text" name="input_param" id="input_param" placeholder="Masukkan Natural Language..." rows="3" autofocus><?= old('input_param'); ?></textarea>
                 </div>
                 <div>
-                    <button type="submit" name="buttonProsesNlToSql" class="btn btn-primary">Proses NL to SQL</button>
+                    <button type="submit" name="buttonProsesNlToSql" class="btn btn-primary" id="button_proses_nl2sql">Proses NL2SQL</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
-                    <a href="<?= base_url('Admin/Dataset/NL') ?>" class="btn btn-primary btn-icon-split mb-3" style="float: right;">
+                    <a href="<?= base_url('data/natural-language') ?>" class="btn btn-primary btn-icon-split mb-3" style="float: right;">
                         <span class="icon text-white-50">
                             <i class="fa fa-archive"></i>
                         </span>

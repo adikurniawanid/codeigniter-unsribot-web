@@ -16,7 +16,7 @@ class Login extends BaseController
 	public function index()
 	{
 		if (isset($_SESSION['user_id'])) {
-			return redirect()->to(base_url('Admin'));
+			return redirect()->to(base_url('/'));
 		}
 
 		session()->destroy();
@@ -98,7 +98,7 @@ class Login extends BaseController
 						WHERE username = '$usernameParam'
 						")->getRowArray();
 						session()->set('nama', $nama['nama']);
-						return redirect()->to(base_url('Admin'));
+						return redirect()->to(base_url('/'));
 					} else {
 						$message = 'Password yang Anda Masukan Salah';
 						session()->setFlashData('err', $message);

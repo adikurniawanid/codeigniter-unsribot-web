@@ -3,7 +3,6 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\M_Home;
 
 class Home extends BaseController
 {
@@ -19,8 +18,11 @@ class Home extends BaseController
 		}
 
 		$data = [
-			'judul' => 'Home',
-			'data_list' => $this->db->query("call get_jumlah_data_list()")->getRowArray(),
+			'judul' => 'Dashboard',
+			'data_list' => $this->db->query("SELECT (SELECT COUNT(nim) FROM t_mahasiswa) as jumlah_mahasiswa,
+       (SELECT COUNT(nip) FROM t_dosen) as jumlah_dosen,
+       (SELECT COUNT(kode) FROM t_mata_kuliah) as jumlah_matakuliah,
+       (SELECT COUNT(kode) FROM t_jurusan) as jumlah_jurusan")->getRowArray(),
 		];
 
 		return view('admin/dashboard', $data);

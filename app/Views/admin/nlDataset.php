@@ -26,7 +26,7 @@ echo $this->section('content');
                 <span class="icon text-white-50">
                     <i class="fa fa-arrow-left"></i>
                 </span>
-                <span class="text">Input NL to SQL</span>
+                <span class="text">Input NL2SQL</span>
             </a>
             <!-- DataTales -->
             <div class="card shadow mb-4">

@@ -55,7 +55,7 @@ echo $this->section('content');
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key['kode']; ?></td>
-                                        <td><?= $key['jurusan']; ?></td>
+                                        <td><?= $key['nama']; ?></td>
                                         <td><?= $key['fakultas']; ?></td>
                                         <td class="text-center">
                                             <form action="/Admin/Jurusan/<?= $key['kode'];
@@ -70,7 +70,7 @@ echo $this->section('content');
                                                                             ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah anda ingin menghapus jurusan <?= $key['jurusan'];
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Apakah anda ingin menghapus jurusan <?= $key['nama'];
                                                                                                                                                                                 ?> ?')"><i class="fas fa-trash "></i></button>
                                             </form>
                                         </td>

@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data" action="<?= base_url('Admin/Fakultas') ?>">
+                <form method="POST" enctype="multipart/form-data" action="<?= base_url('/data/fakultas') ?>">
                     <?= csrf_field(); ?>
                     <div class="form-group">
                         <label>Kode Fakultas</label>
