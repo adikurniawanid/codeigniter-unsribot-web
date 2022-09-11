@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label>SULIET</label>
-                        <input maxlength="600" autocomplete="off" class="form-control" required type="number" step="1" name="suliet_param" placeholder="Masukkan SULIET..." />
+                        <input min="0" max="700" autocomplete="off" class="form-control" required type="number" step="1" name="suliet_param" placeholder="Masukkan SULIET..." />
                     </div>
                     <label>Jenis Kelamin</label>
                     <br>

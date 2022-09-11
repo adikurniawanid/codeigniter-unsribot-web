@@ -6,15 +6,15 @@ use CodeIgniter\Model;
 
 class M_Khs extends Model
 {
-    public function __construct()
-    {
-        $this->db = db_connect();
-    }
+     public function __construct()
+     {
+          $this->db = db_connect();
+     }
 
-    public function get_khs_list()
-    {
-        return $this->db->query(
-            "select
+     public function get_khs_list()
+     {
+          return $this->db->query(
+               "select
             n.id AS id,
             m.nama                                     AS mahasiswa,
        mk.nama                                    AS mata_kuliah,
@@ -38,6 +38,26 @@ from ((t_nilai n join t_mahasiswa m
       on (n.mataKuliahId = mk.id))
 
 "
-        )->getResultArray();
-    }
+          )->getResultArray();
+     }
+
+     public function add_khs(
+          $mahasiswa_id_param,
+          $mata_kuliah_id_param,
+          $rata_tugas_param,
+          $uts_param,
+          $uas_param
+     ) {
+          return $this->db->query(
+               "INSERT INTO t_nilai (mahasiswaId, mataKuliahId,  rata_tugas, uts, uas) VALUES ( (SELECT id FROM t_mahasiswa WHERE nim = $mahasiswa_id_param), $mata_kuliah_id_param,$rata_tugas_param, $uts_param, $uas_param)"
+          );
+     }
+
+     public function delete_khs($id_param)
+     {
+          return $this->db->query(
+               "DELETE FROM t_nilai
+    WHERE id = $id_param"
+          );
+     }
 }

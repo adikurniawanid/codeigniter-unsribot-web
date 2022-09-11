@@ -10,9 +10,11 @@ echo $this->section('content');
     <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
     <!-- Validation -->
+    <?= view('validation/flashData') ?>
+
     <div class="card border-left-primary">
         <div class="card-body">
-            <a data-toggle="modal" data-target="#modalAddFakultas" class="btn btn-primary btn-icon-split mb-3">
+            <a data-toggle="modal" data-target="#modalAddKhs" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fa fa-plus"></i>
                 </span>
@@ -84,7 +86,6 @@ echo $this->section('content');
 <!-- End of Main Content -->
 
 <!-- Modal Add Kategori -->
-<? //= view('modal/addKategori') 
-?>
+<?= view('modal/addKhs') ?>
 
 <?= $this->endSection(); ?>
