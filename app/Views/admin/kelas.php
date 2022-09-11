@@ -10,9 +10,11 @@ echo $this->section('content');
     <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
     <!-- Validation -->
+    <?= view('validation/flashData') ?>
+
     <div class="card border-left-primary">
         <div class="card-body">
-            <a data-toggle="modal" data-target="#modalAddFakultas" class="btn btn-primary btn-icon-split mb-3">
+            <a data-toggle="modal" data-target="#modalAddKelas" class="btn btn-primary btn-icon-split mb-3">
                 <span class="icon text-white-50">
                     <i class="fa fa-plus"></i>
                 </span>
@@ -52,12 +54,12 @@ echo $this->section('content');
                                         <td><?= $key['jam']; ?></td>
                                         <td><?= $key['ruang']; ?></td>
                                         <td class="text-center">
-                                            <form action="/Admin/Kelas/<?= $key['id']; ?>" method="POST" class="d-inline">
+                                            <!-- <form action="/Admin/kelas/<?= $key['id']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <input type="hidden" name="id" value="<?= $key['id']; ?>">
                                                 <button type="submit" class="btn btn-success btn-sm" title="Edit"><i class="fas fa-edit "></i></button>
-                                            </form>
+                                            </form> -->
                                             <form action="/Admin/Kelas/<?= $key['id']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -82,7 +84,6 @@ echo $this->section('content');
 <!-- End of Main Content -->
 
 <!-- Modal Add Kategori -->
-<? //= view('modal/addKategori') 
-?>
+<?= view('modal/addKelas') ?>
 
 <?= $this->endSection(); ?>

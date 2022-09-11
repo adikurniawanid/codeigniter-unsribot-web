@@ -44,7 +44,9 @@ $routes->get('/data/kelas', 'Admin/Kelas::index');
 $routes->get('/data/khs', 'Admin/Khs::index');
 
 $routes->post('/Admin/dosen', 'Admin/Dosen::addDosen');
-
+$routes->delete('/Admin/Kelas/(:any)', 'Admin/Kelas::deleteKelas/$1');
+$routes->put('/Admin/kelas/(:any)', 'Admin/Kelas::editKelas/$1');
+$routes->post('/Admin/kelas', 'Admin/Kelas::addKelas');
 
 $routes->get('/data/jurusan', 'Admin/Jurusan::index');
 $routes->get('/data/jurusan/(:any)', 'Admin/Jurusan::index');

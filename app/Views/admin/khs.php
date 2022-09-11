@@ -1,7 +1,6 @@
 <?php
 echo $this->extend('/layout/template');
 echo $this->section('content');
-d($khs_list);
 ?>
 
 <!-- Begin Page Content -->
@@ -55,12 +54,12 @@ d($khs_list);
                                         <td><?= $key['total']; ?></td>
                                         <td><?= $key['huruf']; ?></td>
                                         <td class="text-center">
-                                            <form action="/Admin/Khs/<?= $key['id']; ?>" method="POST" class="d-inline">
+                                            <!-- <form action="/Admin/Khs/<?= $key['id']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <input type="hidden" name="id" value="<?= $key['id']; ?>">
                                                 <button type="submit" class="btn btn-success btn-sm" title="Edit"><i class="fas fa-edit "></i></button>
-                                            </form>
+                                            </form> -->
                                             <form action="/Admin/Khs/<?= $key['id']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
