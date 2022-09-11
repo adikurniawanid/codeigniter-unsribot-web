@@ -11,7 +11,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-robot"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">UNSRI BOT</div>
+                <div class="sidebar-brand-text mx-3">SIMAK SIMULASI</div>
             </a>
 
             <!-- Divider -->
@@ -25,28 +25,74 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider">
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('nl2sql') ?>">
                     <i class="fas fa-comments fa-cog"></i>
                     <span>NL2SQL</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider">
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('query-database') ?>">
                     <i class="fas fa-database fa-cog"></i>
                     <span>Query Database</span>
                 </a>
+            </li> -->
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('data/mahasiswa') ?>">
+                    <i class="fas fa-database fa-cog"></i>
+                    <span>Mahasiswa</span>
+                </a>
+            </li>
+
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('data/dosen') ?>">
+                    <i class="fas fa-database fa-cog"></i>
+                    <span>Dosen</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('data/mata-kuliah') ?>">
+                    <i class="fas fa-database fa-cog"></i>
+                    <span>Mata Kuliah</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('data/kelas') ?>">
+                    <i class="fas fa-database fa-cog"></i>
+                    <span>Kelas</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('data/khs') ?>">
+                    <i class="fas fa-database fa-cog"></i>
+                    <span>KHS</span>
+                </a>
             </li>
 
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-server fa-cog"></i>
                     <span>Data</span>
@@ -56,13 +102,13 @@
                         <a class="collapse-item" href="<?= base_url('data/mahasiswa'); ?>">Mahasiswa</a>
                         <a class="collapse-item" href="<?= base_url('data/dosen'); ?>">Dosen</a>
                         <a class="collapse-item" href="<?= base_url('data/mata-kuliah'); ?>">Mata Kuliah</a>
-                        <!-- <a class="collapse-item" href="<?= base_url('data/jurusan'); ?>">Jurusan</a>
-                        <a class="collapse-item" href="<?= base_url('data/fakultas'); ?>">Fakultas</a> -->
+                        <a class="collapse-item" href="<?= base_url('data/jurusan'); ?>">Jurusan</a>
+                        <a class="collapse-item" href="<?= base_url('data/fakultas'); ?>">Fakultas</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

@@ -1,6 +1,7 @@
 <?php
 echo $this->extend('/layout/template');
 echo $this->section('content');
+d($khs_list);
 ?>
 
 <!-- Begin Page Content -->
@@ -30,38 +31,40 @@ echo $this->section('content');
                             <thead class="text-center">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
+                                    <th>Mahasiswa</th>
                                     <th>Mata Kuliah</th>
-                                    <th>Dosen</th>
-                                    <th>Hari</th>
-                                    <th>Jam</th>
-                                    <th>Ruang</th>
+                                    <th>Rata Tugas</th>
+                                    <th>UTS</th>
+                                    <th>UAS</th>
+                                    <th>Total</th>
+                                    <th>Huruf</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1;
-                                foreach ($kelas_list as $key) :
+                                foreach ($khs_list as $key) :
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
-                                        <td><?= $key['nama']; ?></td>
+                                        <td><?= $key['mahasiswa']; ?></td>
                                         <td><?= $key['mata_kuliah']; ?></td>
-                                        <td><?= $key['dosen']; ?></td>
-                                        <td><?= $key['hari']; ?></td>
-                                        <td><?= $key['jam']; ?></td>
-                                        <td><?= $key['ruang']; ?></td>
+                                        <td><?= $key['rata_tugas']; ?></td>
+                                        <td><?= $key['uts']; ?></td>
+                                        <td><?= $key['uas']; ?></td>
+                                        <td><?= $key['total']; ?></td>
+                                        <td><?= $key['huruf']; ?></td>
                                         <td class="text-center">
-                                            <form action="/Admin/Kelas/<?= $key['id']; ?>" method="POST" class="d-inline">
+                                            <form action="/Admin/Khs/<?= $key['id']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <input type="hidden" name="id" value="<?= $key['id']; ?>">
                                                 <button type="submit" class="btn btn-success btn-sm" title="Edit"><i class="fas fa-edit "></i></button>
                                             </form>
-                                            <form action="/Admin/Kelas/<?= $key['id']; ?>" method="POST" class="d-inline">
+                                            <form action="/Admin/Khs/<?= $key['id']; ?>" method="POST" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger btn-sm" id="btn-archive-kategori" title="Delete" onclick="return confirm('Apakah anda yakin ingin menghapus data kelas ?')"><i class="fas fa-trash "></i></button>
+                                                <button type="submit" class="btn btn-danger btn-sm" id="btn-archive-kategori" title="Delete" onclick="return confirm('Apakah anda yakin ingin menghapus data khs ?')"><i class="fas fa-trash "></i></button>
                                             </form>
                                         </td>
                                     </tr>

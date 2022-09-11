@@ -3,13 +3,13 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\M_Kelas;
+use App\Models\M_Khs;
 
-class Kelas extends BaseController
+class Khs extends BaseController
 {
     public function __construct()
     {
-        $this->model = new M_Kelas();
+        $this->model = new M_Khs();
     }
 
     public function index()
@@ -19,10 +19,10 @@ class Kelas extends BaseController
         }
 
         $data = [
-            'judul' => 'Kelas',
-            'kelas_list' => $this->model->get_kelas_list()
+            'judul' => 'KHS',
+            'khs_list' => $this->model->get_khs_list()
         ];
 
-        return view('admin/kelas', $data);
+        return view('admin/khs', $data);
     }
 }

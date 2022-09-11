@@ -40,6 +40,11 @@ $routes->post('/data/mahasiswa', 'Admin/Mahasiswa::addMahasiswa');
 $routes->get('/data/dosen', 'Admin/Dosen::index');
 $routes->get('/data/dosen/(:any)', 'Admin/Dosen::index');
 $routes->get('/data/mata-kuliah', 'Admin/Matakuliah::index');
+$routes->get('/data/kelas', 'Admin/Kelas::index');
+$routes->get('/data/khs', 'Admin/Khs::index');
+
+$routes->post('/Admin/dosen', 'Admin/Dosen::addDosen');
+
 
 $routes->get('/data/jurusan', 'Admin/Jurusan::index');
 $routes->get('/data/jurusan/(:any)', 'Admin/Jurusan::index');
@@ -61,7 +66,6 @@ $routes->post('/Admin/Matakuliah', 'Admin/Matakuliah::addMatakuliah');
 $routes->delete('/Admin/Matakuliah/(:any)', 'Admin/Matakuliah::deleteMatakuliah/$1');
 $routes->put('/Admin/Matakuliah/(:any)', 'Admin/Matakuliah::editMatakuliah/$1');
 
-$routes->post('/Admin/Dosen', 'Admin/Dosen::addDosen');
 $routes->delete('/Admin/Dosen/(:any)', 'Admin/Dosen::deleteDosen/$1');
 $routes->put('/Admin/Dosen/(:any)', 'Admin/Dosen::editDosen/$1');
 

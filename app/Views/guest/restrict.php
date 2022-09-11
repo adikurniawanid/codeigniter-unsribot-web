@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $judul; ?> | UNSRI BOT</title>
+    <title><?= $judul; ?> | SIMAK SIMULASI</title>
 
     <!-- Custom fonts for this template-->
     <link href=<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?> rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-robot"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">UNSRI BOT</div>
+                <div class="sidebar-brand-text mx-3">SIMAK SIMULASI</div>
             </a>
 
             <!-- Divider -->
@@ -160,7 +160,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; UNSRI BOT 2021</span>
+                        <span>Copyright &copy; SIMAK SIMULASI 2021</span>
                     </div>
                 </div>
             </footer>
